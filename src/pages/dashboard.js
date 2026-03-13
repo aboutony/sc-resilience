@@ -2,37 +2,33 @@ import { Registry } from '../infra/Registry.js';
 
 export function renderDashboardPage() {
     const content = `
-        <div style="background-color: #020617;" class="p-8 min-h-screen text-white">
-            <div class="mb-10">
-                <h1 class="text-4xl font-bold tracking-tighter uppercase">Command Center</h1>
-                <p class="text-slate-500 font-mono text-xs mt-2 uppercase tracking-widest">v2.1 // ORACLE ATOMIC // LIVE TELEMETRY</p>
+        <div style="background: var(--bg-deep, #020617); min-height: 100vh; padding: 2rem; color: white;">
+            <div style="margin-bottom: 2.5rem;">
+                <h1 style="font-size: 2.25rem; font-weight: 800; letter-spacing: -0.05em; text-transform: uppercase;">Command Center</h1>
+                <p style="color: #64748b; font-family: monospace; font-size: 0.75rem; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">v2.1 // ORACLE ATOMIC // LIVE TELEMETRY</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div style="background-color: #0f172a; border: 1px solid #1e293b;" class="group p-6 rounded-2xl hover:border-blue-500/50 transition-all cursor-pointer" onclick="location.hash='#/warehouse-grid'">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-400">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 1rem; cursor: pointer;" onclick="location.hash='#/warehouse-grid'">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                        <div style="width: 40px; height: 40px; background: rgba(59, 130, 246, 0.1); color: #60a5fa; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem;">
                             <i class="fas fa-th-large"></i>
                         </div>
-                        <span class="text-[10px] text-blue-500 font-bold tracking-widest uppercase bg-blue-500/5 px-2 py-1 rounded">Operational</span>
+                        <span style="font-size: 10px; color: #3b82f6; font-weight: bold; text-transform: uppercase; padding: 4px 8px; background: rgba(59, 130, 246, 0.05); border-radius: 4px;">Operational</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Operational Pulse</h3>
-                    <p class="text-slate-400 text-sm">Manage localized zones and Made-in-KSA asset utilization metrics.</p>
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Operational Pulse</h3>
+                    <p style="color: #94a3b8; font-size: 0.875rem;">Manage localized zones and Made-in-KSA asset utilization metrics.</p>
                 </div>
 
-                <div style="background-color: #0f172a; border: 1px solid #1e293b;" class="group p-6 rounded-2xl hover:border-red-500/50 transition-all cursor-pointer" onclick="location.hash='#/stock-velocity'">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center text-red-400">
+                <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 1rem; cursor: pointer;" onclick="location.hash='#/stock-velocity'">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                        <div style="width: 40px; height: 40px; background: rgba(239, 68, 68, 0.1); color: #f87171; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem;">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <span class="text-[10px] text-red-500 font-bold tracking-widest uppercase bg-red-500/5 px-2 py-1 rounded">Real-Time</span>
+                        <span style="font-size: 10px; color: #ef4444; font-weight: bold; text-transform: uppercase; padding: 4px 8px; background: rgba(239, 68, 68, 0.05); border-radius: 4px;">Real-Time</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Velocity Analytics</h3>
-                    <p class="text-slate-400 text-sm">Detect supply chain friction and throughput stagnation risks.</p>
-                </div>
-
-                <div class="bg-slate-900/30 border-2 border-dashed border-slate-800/50 p-6 rounded-2xl flex items-center justify-center opacity-40">
-                    <span class="text-slate-700 text-[10px] uppercase tracking-[0.3em] font-black">Next Module Initializing</span>
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Velocity Analytics</h3>
+                    <p style="color: #94a3b8; font-size: 0.875rem;">Detect supply chain friction and throughput stagnation risks.</p>
                 </div>
             </div>
         </div>
