@@ -11,6 +11,7 @@ export default defineConfig({
     open: true,
     hmr: {
       overlay: false,
+      timeout: 500,
     },
   },
 });

@@ -1,11 +1,13 @@
 // ═══════════════════════════════════════════
 // Spend Analysis – "The Oracle" Chapter 4.3
+// ─── IRONCLAD BUILD: Savings via Web Worker ───
 // Spend Waterfall, Supplier Distribution, Savings
 // ═══════════════════════════════════════════
 
 import { i18n } from '../i18n.js';
 import { spendData, kpiData } from '../data/mock-data.js';
 import { formatCompact } from '../currency.js';
+import { computeSavingsDelta } from '../logic/savings-bridge.js';
 
 export function renderSpendAnalysisPage() {
   const kpi = kpiData.spendAnalysis;
@@ -77,6 +79,23 @@ export function renderSpendAnalysisPage() {
   `;
 
   requestAnimationFrame(() => { initWaterfallChart(); initSupplierDoughnut(); });
+
+  // ─── IRONCLAD: Offload savings delta to Web Worker ───
+  // Runs off the UI thread – if the main thread crashes, worker survives
+  computeSavingsDelta({
+    waterfall: spendData.waterfall,
+    supplierSpend: spendData.supplierSpend,
+    savingsOpportunities: spendData.savingsOpportunities,
+  }).then((result) => {
+    console.info('[SAVINGS-WORKER] ✓ Delta computed off-thread:', {
+      totalSavings: result.totalSavings,
+      savingsPercent: result.savingsAsPercentOfSpend + '%',
+      riskDistribution: result.riskPercentages,
+    });
+  }).catch((err) => {
+    console.warn('[SAVINGS-WORKER] Computation failed (non-blocking):', err.message);
+  });
+
   return page;
 }
 
