@@ -2,6 +2,8 @@
 // Router – Hash-based SPA with Narrative Slide Transitions
 // ═══════════════════════════════════════════════════════
 
+import { Registry } from './infra/Registry.js';
+
 // Route order defines the "chapter" order for narrative slide direction
 const ROUTE_ORDER = [
   'login',
@@ -55,6 +57,9 @@ class Router {
 
     const prevRoute = this.currentRoute;
     this.currentRoute = hash;
+
+    // ─── KILL-SWITCH: Tear down all registered instances ───
+    Registry.cleanupAll();
 
     // Determine slide direction based on narrative order
     const prevIdx = ROUTE_ORDER.indexOf(prevRoute);
