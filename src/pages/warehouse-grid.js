@@ -1,7 +1,12 @@
 import { Registry } from '../infra/Registry.js';
-import { inventoryStubs } from '../data/mock-data.js'; // Pointing to the actual file on GitHub
+import * as AllMockData from '../data/mock-data.js'; 
 
 export function renderWarehouseGridPage() {
+    // 1. Locate the data safely
+    // We look for 'inventoryStubs' first, then fall back to any 'warehouses' array found in the file
+    const dataSource = AllMockData.inventoryStubs || AllMockData.default?.inventoryStubs || AllMockData.warehouses || [];
+    const warehouses = Array.isArray(dataSource) ? dataSource : (dataSource.warehouses || []);
+
     const content = `
         <div class="p-6 bg-slate-950 min-h-screen">
             <div class="flex justify-between items-center mb-8">
@@ -17,7 +22,7 @@ export function renderWarehouseGridPage() {
                 </div>
             </div>
             <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                <div class="text-slate-500 italic p-4">Initializing operational telemetry...</div>
+                <div class="text-slate-500 italic p-4">Accessing localized data stream...</div>
             </div>
         </div>
     `;
@@ -27,22 +32,25 @@ export function renderWarehouseGridPage() {
         if (!container) return;
 
         const updateView = (onlyKSA = false) => {
-            // Using the inventoryStubs from your mock-data.js
-            const warehouses = inventoryStubs?.warehouses || [];
             const data = onlyKSA ? warehouses.filter(w => w.origin === 'KSA') : warehouses;
 
-            if (data.length === 0) {
-                container.innerHTML = `<div class="text-slate-500 p-4">No zones found matching this filter.</div>`;
+            if (!data || data.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full p-12 text-center border border-dashed border-slate-800 rounded-2xl">
+                        <p class="text-slate-500 text-sm">No operational zones detected in current telemetry.</p>
+                    </div>`;
                 return;
             }
 
             container.innerHTML = data.map(zone => `
-                <div class="bg-slate-900/40 border ${zone.origin === 'KSA' ? 'border-green-500/30' : 'border-slate-800'} p-5 rounded-2xl transition-all hover:bg-slate-900/60">
+                <div class="bg-slate-900/40 border ${zone.origin === 'KSA' ? 'border-green-500/30' : 'border-slate-800'} p-5 rounded-2xl transition-all hover:bg-slate-800/40">
                     <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-warehouse ${zone.origin === 'KSA' ? 'text-green-400' : 'text-blue-400'}"></i>
-                        ${zone.origin === 'KSA' ? '<span class="text-[10px] text-green-400 font-bold uppercase tracking-widest">KSA Origin</span>' : ''}
+                        <div class="p-2 bg-slate-800 rounded-lg">
+                            <i class="fas fa-warehouse ${zone.origin === 'KSA' ? 'text-green-400' : 'text-blue-400'}"></i>
+                        </div>
+                        ${zone.origin === 'KSA' ? '<span class="text-[10px] text-green-400 font-bold uppercase tracking-widest bg-green-400/10 px-2 py-1 rounded">KSA Origin</span>' : ''}
                     </div>
-                    <h3 class="text-white font-semibold">${zone.zoneName || 'Warehouse Zone'}</h3>
+                    <h3 class="text-white font-semibold">${zone.zoneName || 'Storage Zone'}</h3>
                     <p class="text-xs text-slate-500 font-mono">${zone.id || 'N/A'}</p>
                     <div class="mt-4">
                         <div class="flex justify-between text-xs mb-1">
