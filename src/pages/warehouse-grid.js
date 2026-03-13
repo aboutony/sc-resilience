@@ -1,8 +1,7 @@
 import { Registry } from '../infra/Registry.js';
-import { inventoryStubs } from '../data/core-stubs.js';
+import { inventoryStubs } from '../data/mock-data.js'; // Pointing to the actual file on GitHub
 
 export function renderWarehouseGridPage() {
-    // 1. The HTML Structure
     const content = `
         <div class="p-6 bg-slate-950 min-h-screen">
             <div class="flex justify-between items-center mb-8">
@@ -17,59 +16,59 @@ export function renderWarehouseGridPage() {
                     </button>
                 </div>
             </div>
-
             <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                </div>
+                <div class="text-slate-500 italic p-4">Initializing operational telemetry...</div>
+            </div>
         </div>
     `;
 
-    // 2. Logic to handle the data and filters
     setTimeout(() => {
         const container = document.getElementById('grid-container');
-        const allBtn = document.getElementById('filter-all');
-        const ksaBtn = document.getElementById('filter-ksa');
+        if (!container) return;
 
         const updateView = (onlyKSA = false) => {
-            // Data filtering
-            const data = onlyKSA 
-                ? inventoryStubs.warehouses.filter(w => w.origin === 'KSA') 
-                : inventoryStubs.warehouses;
+            // Using the inventoryStubs from your mock-data.js
+            const warehouses = inventoryStubs?.warehouses || [];
+            const data = onlyKSA ? warehouses.filter(w => w.origin === 'KSA') : warehouses;
 
-            // UI Rendering
+            if (data.length === 0) {
+                container.innerHTML = `<div class="text-slate-500 p-4">No zones found matching this filter.</div>`;
+                return;
+            }
+
             container.innerHTML = data.map(zone => `
-                <div class="bg-slate-900/40 border ${zone.origin === 'KSA' ? 'border-green-500/30' : 'border-slate-800'} p-5 rounded-2xl transition-all">
+                <div class="bg-slate-900/40 border ${zone.origin === 'KSA' ? 'border-green-500/30' : 'border-slate-800'} p-5 rounded-2xl transition-all hover:bg-slate-900/60">
                     <div class="flex justify-between items-start mb-4">
                         <i class="fas fa-warehouse ${zone.origin === 'KSA' ? 'text-green-400' : 'text-blue-400'}"></i>
                         ${zone.origin === 'KSA' ? '<span class="text-[10px] text-green-400 font-bold uppercase tracking-widest">KSA Origin</span>' : ''}
                     </div>
-                    <h3 class="text-white font-semibold">${zone.zoneName}</h3>
-                    <p class="text-xs text-slate-500 font-mono">${zone.id}</p>
+                    <h3 class="text-white font-semibold">${zone.zoneName || 'Warehouse Zone'}</h3>
+                    <p class="text-xs text-slate-500 font-mono">${zone.id || 'N/A'}</p>
                     <div class="mt-4">
                         <div class="flex justify-between text-xs mb-1">
                             <span class="text-slate-400">Utilization</span>
-                            <span class="text-white">${zone.utilization}%</span>
+                            <span class="text-white">${zone.utilization || 0}%</span>
                         </div>
                         <div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-blue-500" style="width: ${zone.utilization}%"></div>
+                            <div class="h-full bg-blue-500" style="width: ${zone.utilization || 0}%"></div>
                         </div>
                     </div>
                 </div>
             `).join('');
         };
 
-        // Event Listeners
-        allBtn.onclick = () => updateView(false);
-        ksaBtn.onclick = () => updateView(true);
-
-        // Initial Render
         updateView();
+        
+        document.getElementById('filter-all').onclick = () => updateView(false);
+        document.getElementById('filter-ksa').onclick = () => updateView(true);
 
-        // Cleanup registration
         Registry.add({
             id: 'warehouse-grid-logic',
             destroy: () => {
-                allBtn.onclick = null;
-                ksaBtn.onclick = null;
+                const b1 = document.getElementById('filter-all');
+                const b2 = document.getElementById('filter-ksa');
+                if(b1) b1.onclick = null;
+                if(b2) b2.onclick = null;
             }
         });
     }, 0);
