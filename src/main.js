@@ -20,6 +20,10 @@ import { renderLogisticsManagementPage } from './pages/logistics-management.js';
 import { renderContractManagementPage } from './pages/contract-management.js';
 import { renderRiskDashboardPage } from './pages/risk-dashboard.js';
 import { renderComplianceDocsPage } from './pages/compliance-docs.js';
+import { renderDemandPlanningPage } from './pages/demand-planning.js';
+import { renderCostEngineeringPage } from './pages/cost-engineering.js';
+import { renderSpendAnalysisPage } from './pages/spend-analysis.js';
+import { renderIntelligentReportingPage } from './pages/intelligent-reporting.js';
 
 // ─── App State ───
 let appShell = null;
@@ -145,6 +149,14 @@ function getPageContent(route) {
       return renderRiskDashboardPage();
     case 'compliance-docs':
       return renderComplianceDocsPage();
+    case 'demand-planning':
+      return renderDemandPlanningPage();
+    case 'cost-engineering':
+      return renderCostEngineeringPage();
+    case 'spend-analysis':
+      return renderSpendAnalysisPage();
+    case 'intelligent-reporting':
+      return renderIntelligentReportingPage();
     case 'integration-settings':
       return renderIntegrationSettingsPage();
     case 'user-profile':

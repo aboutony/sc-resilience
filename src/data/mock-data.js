@@ -91,6 +91,31 @@ export const kpiData = {
     auditEvents: { value: 1247, trend: 22, trendDir: 'up' },
     policyUpdates: { value: 8, trend: 33, trendDir: 'up' },
   },
+  // ── Phase Four KPIs ──
+  demandPlanning: {
+    forecastAccuracy: { value: '94.2%', trend: 3.8, trendDir: 'up' },
+    planningHorizon: { value: '18mo', trend: 12, trendDir: 'up' },
+    autoTriggers: { value: 24, trend: 20, trendDir: 'up' },
+    demandVolatility: { value: '8.3%', trend: -15, trendDir: 'up' },
+  },
+  costEngineering: {
+    totalSpendYTD: { value: 136200000, trend: 6, trendDir: 'down' },
+    costAvoidance: { value: 12800000, trend: 34, trendDir: 'up' },
+    categoryCount: { value: 18, trend: 8, trendDir: 'up' },
+    spendLeakage: { value: '2.1%', trend: -42, trendDir: 'up' },
+  },
+  spendAnalysis: {
+    networkSpend: { value: 425000000, trend: 4.5, trendDir: 'up' },
+    addressableSpend: { value: '78%', trend: 6, trendDir: 'up' },
+    savingsIdentified: { value: 18600000, trend: 28, trendDir: 'up' },
+    complianceRate: { value: '96.4%', trend: 2.1, trendDir: 'up' },
+  },
+  reporting: {
+    healthScore: { value: 87, trend: 5, trendDir: 'up' },
+    insightsGenerated: { value: 142, trend: 18, trendDir: 'up' },
+    executiveReports: { value: 24, trend: 12, trendDir: 'up' },
+    actionItems: { value: 8, trend: -25, trendDir: 'up' },
+  },
 };
 
 // ═══════════════════════════════════════════
@@ -301,5 +326,133 @@ export const complianceData = {
     { type: 'warning', icon: '⚖️', title: 'Trade Compliance Alert', titleAr: 'تنبيه امتثال تجاري', text: 'Updated sanctions list affects 2 secondary suppliers. Review required within 72h.', textAr: 'قائمة العقوبات المحدثة تؤثر على ٢ من الموردين الثانويين. المراجعة مطلوبة خلال ٧٢ ساعة.', time: '6 hrs ago', timeAr: 'منذ ٦ ساعات' },
     { type: 'success', icon: '✅', title: 'ESG Audit Passed', titleAr: 'اجتياز تدقيق ESG', text: 'German Tech Solutions completed annual ESG audit with 95/100 score.', textAr: 'أكملت German Tech Solutions تدقيق ESG السنوي بنتيجة ٩٥/١٠٠.', time: '1 day ago', timeAr: 'منذ يوم' },
     { type: 'info', icon: '🔐', title: 'Data Protection Compliance', titleAr: 'امتثال حماية البيانات', text: 'PDPL (Saudi Personal Data Protection Law) quarterly review completed. All systems compliant.', textAr: 'اكتمال المراجعة الربعية لقانون حماية البيانات الشخصية. جميع الأنظمة متوافقة.', time: '2 days ago', timeAr: 'منذ يومين' },
+  ],
+};
+
+// ═══════════════════════════════════════════
+// Phase Four – Demand Planning Data
+// ═══════════════════════════════════════════
+
+export const demandData = {
+  forecast: {
+    labels: ['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'],
+    actual: [420,385,410,445,460,430,475,490,520,510,495,null],
+    predicted: [415,390,405,440,455,435,470,485,515,505,500,530],
+    upperBand: [435,410,425,465,480,460,500,515,545,535,530,560],
+    lowerBand: [395,370,385,415,430,410,440,455,485,475,470,500],
+  },
+  scenarios: [
+    { id: 'best', label: 'Best Case', labelAr: 'أفضل حالة', growth: 12, revenue: 476000000, triggers: 18, color: 'var(--accent-success)' },
+    { id: 'base', label: 'Base Case', labelAr: 'الحالة الأساسية', growth: 6, revenue: 450000000, triggers: 24, color: 'var(--accent-primary)' },
+    { id: 'worst', label: 'Worst Case', labelAr: 'أسوأ حالة', growth: -3, revenue: 412000000, triggers: 31, color: 'var(--accent-danger)' },
+  ],
+  replenishment: [
+    { sku: 'SKU-4821', item: 'Industrial Lubricants', itemAr: 'زيوت صناعية', currentStock: 1240, reorderPoint: 800, leadDays: 5, autoTrigger: true, safetyStock: 320 },
+    { sku: 'SKU-7234', item: 'Steel Fasteners Grade A', itemAr: 'مثبتات فولاذية درجة أ', currentStock: 620, reorderPoint: 750, leadDays: 8, autoTrigger: true, safetyStock: 200 },
+    { sku: 'SKU-1098', item: 'Chemical Reagents', itemAr: 'كواشف كيميائية', currentStock: 3100, reorderPoint: 2000, leadDays: 12, autoTrigger: false, safetyStock: 600 },
+    { sku: 'SKU-5567', item: 'Polymer Pellets', itemAr: 'حبيبات بوليمر', currentStock: 890, reorderPoint: 900, leadDays: 6, autoTrigger: true, safetyStock: 250 },
+  ],
+};
+
+// ═══════════════════════════════════════════
+// Phase Four – Cost Engineering Data
+// ═══════════════════════════════════════════
+
+export const costData = {
+  commodityForecast: {
+    labels: ['Q1 25','Q2 25','Q3 25','Q4 25','Q1 26','Q2 26','Q3 26','Q4 26'],
+    steel: [1840,1920,1880,1950,2010,2080,2040,2100],
+    chemicals: [620,680,660,710,740,770,750,790],
+    polymers: [1100,1150,1080,1200,1250,1300,1280,1350],
+  },
+  categoryMatrix: [
+    { category: 'Industrial Chemicals', categoryAr: 'المواد الكيميائية الصناعية', spend: 42000000, risk: 'medium', suppliers: 6, savings: 3200000 },
+    { category: 'Steel & Metals', categoryAr: 'الفولاذ والمعادن', spend: 38000000, risk: 'high', suppliers: 4, savings: 2800000 },
+    { category: 'Technology & Licenses', categoryAr: 'التكنولوجيا والتراخيص', spend: 22000000, risk: 'low', suppliers: 3, savings: 1500000 },
+    { category: 'Logistics Services', categoryAr: 'خدمات لوجستية', spend: 18000000, risk: 'medium', suppliers: 5, savings: 2100000 },
+    { category: 'Polymer & Plastics', categoryAr: 'البوليمر والبلاستيك', spend: 9800000, risk: 'low', suppliers: 3, savings: 800000 },
+    { category: 'Packaging Materials', categoryAr: 'مواد التعبئة والتغليف', spend: 6400000, risk: 'low', suppliers: 4, savings: 600000 },
+  ],
+  leakages: [
+    { id: 'LK-001', category: 'Steel & Metals', amount: 840000, cause: 'Off-contract spot purchases during Q4 price surge', causeAr: 'مشتريات فورية خارج العقد خلال ارتفاع أسعار الربع الرابع', opportunity: 'Consolidate to framework agreement', opportunityAr: 'توحيد ضمن اتفاقية إطارية' },
+    { id: 'LK-002', category: 'Logistics Services', amount: 420000, cause: 'Duplicate freight bookings across 3 warehouses', causeAr: 'حجوزات شحن مكررة عبر ٣ مستودعات', opportunity: 'Centralize logistics procurement', opportunityAr: 'مركزة مشتريات اللوجستيات' },
+    { id: 'LK-003', category: 'Packaging Materials', amount: 180000, cause: 'Minimum order quantities exceeded actual demand by 30%', causeAr: 'تجاوز الحد الأدنى للطلب الطلب الفعلي بنسبة ٣٠٪', opportunity: 'Renegotiate MOQ terms', opportunityAr: 'إعادة التفاوض على شروط الحد الأدنى' },
+  ],
+};
+
+// ═══════════════════════════════════════════
+// Phase Four – Spend Analysis Data
+// ═══════════════════════════════════════════
+
+export const spendData = {
+  // Waterfall: every SAR from Phase One POs categorized by Phase Three risk
+  waterfall: [
+    { label: 'Total PO Spend', labelAr: 'إجمالي إنفاق أوامر الشراء', value: 136200000, type: 'total' },
+    { label: 'Low Risk', labelAr: 'مخاطر منخفضة', value: 38200000, type: 'positive', risk: 'low' },
+    { label: 'Medium Risk', labelAr: 'مخاطر متوسطة', value: 60000000, type: 'neutral', risk: 'medium' },
+    { label: 'High Risk', labelAr: 'مخاطر مرتفعة', value: 38000000, type: 'negative', risk: 'high' },
+  ],
+  supplierSpend: [
+    { supplier: 'German Tech Solutions', spend: 45000000, risk: 'low', pct: 33 },
+    { supplier: 'Emirates Steel Corp', spend: 28400000, risk: 'high', pct: 21 },
+    { supplier: 'Qatar Advanced Materials', spend: 21000000, risk: 'medium', pct: 15 },
+    { supplier: 'Bahrain Precision Mfg', spend: 15200000, risk: 'low', pct: 11 },
+    { supplier: 'Al-Marai Industries', spend: 12500000, risk: 'low', pct: 9 },
+    { supplier: 'Riyadh Polymers Ltd', spend: 8900000, risk: 'medium', pct: 7 },
+    { supplier: 'Kuwait Logistics Group', spend: 5200000, risk: 'high', pct: 4 },
+  ],
+  savingsOpportunities: [
+    { type: 'success', icon: '💰', title: 'Framework Consolidation', titleAr: 'توحيد الاتفاقيات الإطارية', text: 'Consolidating 4 spot-buy categories into framework agreements could save SAR 4.2M annually.', textAr: 'توحيد ٤ فئات شراء فوري في اتفاقيات إطارية يمكن أن يوفر ٤.٢ مليون ر.س سنوياً.', savings: 4200000 },
+    { type: 'info', icon: '📊', title: 'Volume Rebate Optimization', titleAr: 'تحسين خصومات الحجم', text: 'AI detects 3 suppliers where increased volume would trigger better pricing tiers.', textAr: 'كشف الذكاء الاصطناعي ٣ موردين حيث زيادة الحجم ستفعل مستويات تسعير أفضل.', savings: 2800000 },
+    { type: 'warning', icon: '⚠️', title: 'Maverick Spend Reduction', titleAr: 'تقليل الإنفاق المنحرف', text: 'SAR 1.44M in off-contract purchases identified. Recommend mandatory PO routing.', textAr: 'تم تحديد ١.٤٤ مليون ر.س من المشتريات خارج العقد. يُوصى بتوجيه أوامر الشراء الإلزامي.', savings: 1440000 },
+  ],
+};
+
+// ═══════════════════════════════════════════
+// Phase Four – Intelligent Reporting (NLP)
+// ═══════════════════════════════════════════
+
+export const reportingData = {
+  healthScore: 87,
+  healthBreakdown: { procurement: 92, logistics: 88, governance: 84, analytics: 85 },
+
+  executiveSummary: {
+    en: `Your supply chain is operating at **87/100 resilience**—a 5-point improvement this quarter. Here is what the data reveals:
+
+**Procurement Strength:** With 247 vetted suppliers and a Three-Way Matching compliance of 99.4%, your Source-to-Pay engine is highly disciplined. AI negotiation has saved **SAR 2.8M** this cycle alone.
+
+**Logistics Efficiency:** On-time delivery stands at **96.8%**, with an average transit of 4.2 days—well below the industry benchmark of 6.1 days. The Dammam rerouting protocol has reduced port congestion impact by 40%.
+
+**Governance Risk:** 7 contracts expire within 30 days. The Kuwait Logistics SLA requires immediate scope amendment to avoid SAR 340K exposure. China remains the highest geopolitical risk node at Level 5.
+
+**Opportunity for Savings:** The Oracle identifies **SAR 18.6M** in addressable savings across 3 categories: framework consolidation (SAR 4.2M), volume rebates (SAR 2.8M), and maverick spend reduction (SAR 1.44M).
+
+**Recommended Actions:**
+1. Initiate Qatar Advanced Materials renewal negotiation (48 days remaining)
+2. Activate hedging protocol for SAR/USD if fluctuation exceeds 3%
+3. Consolidate steel procurement into a single framework agreement`,
+
+    ar: `تعمل سلسلة التوريد عند مستوى مرونة **٨٧/١٠٠**—تحسن بمقدار ٥ نقاط هذا الربع. إليك ما تكشفه البيانات:
+
+**قوة المشتريات:** مع ٢٤٧ مورداً معتمداً وامتثال المطابقة الثلاثية بنسبة ٩٩.٤٪، يعمل محرك المصدر إلى الدفع بانضباط عالٍ. وفّر التفاوض بالذكاء الاصطناعي **٢.٨ مليون ر.س** في هذه الدورة.
+
+**كفاءة اللوجستيات:** يبلغ التسليم في الوقت **٩٦.٨٪**، بمتوسط عبور ٤.٢ يوم—أقل بكثير من المعيار الصناعي ٦.١ يوم. قلّل بروتوكول إعادة التوجيه عبر الدمام تأثير ازدحام الميناء بنسبة ٤٠٪.
+
+**مخاطر الحوكمة:** تنتهي ٧ عقود خلال ٣٠ يوماً. تتطلب اتفاقية الخدمات مع مجموعة الكويت تعديل النطاق الفوري لتجنب تعرض بقيمة ٣٤٠ ألف ر.س. تظل الصين أعلى عقدة مخاطر جيوسياسية عند المستوى ٥.
+
+**فرص التوفير:** يحدد الأوراكل **١٨.٦ مليون ر.س** في وفورات قابلة للتحقيق عبر ٣ فئات: توحيد الاتفاقيات الإطارية (٤.٢ مليون ر.س)، خصومات الحجم (٢.٨ مليون ر.س)، وتقليل الإنفاق المنحرف (١.٤٤ مليون ر.س).
+
+**الإجراءات الموصى بها:**
+١. بدء مفاوضات تجديد عقد قطر للمواد المتقدمة (٤٨ يوماً متبقية)
+٢. تفعيل بروتوكول التحوط لـ ر.س/دولار إذا تجاوز التقلب ٣٪
+٣. توحيد مشتريات الفولاذ في اتفاقية إطارية واحدة`,
+  },
+
+  keyFindings: [
+    { severity: 'success', title: 'Procurement Discipline', titleAr: 'انضباط المشتريات', detail: '99.4% Three-Way Match compliance. Zero unauthorized payments.', detailAr: 'امتثال المطابقة الثلاثية ٩٩.٤٪. صفر مدفوعات غير مصرح بها.' },
+    { severity: 'success', title: 'Logistics Performance', titleAr: 'أداء اللوجستيات', detail: '96.8% on-time delivery, 40% reduction in port congestion impact.', detailAr: 'تسليم في الوقت ٩٦.٨٪، تقليل ٤٠٪ في تأثير ازدحام الميناء.' },
+    { severity: 'warning', title: 'Contract Expiry Risk', titleAr: 'مخاطر انتهاء العقود', detail: '7 contracts expiring in 30 days. Kuwait SLA needs immediate amendment.', detailAr: '٧ عقود تنتهي خلال ٣٠ يوماً. اتفاقية الكويت تحتاج تعديل فوري.' },
+    { severity: 'danger', title: 'Geopolitical Exposure', titleAr: 'التعرض الجيوسياسي', detail: 'China raw material dependency at 28%. Recommend diversification.', detailAr: 'الاعتماد على الصين في المواد الخام ٢٨٪. يُوصى بالتنويع.' },
+    { severity: 'info', title: 'Savings Pipeline', titleAr: 'خط أنابيب الوفورات', detail: 'SAR 18.6M in identified savings across 3 strategic categories.', detailAr: '١٨.٦ مليون ر.س في وفورات محددة عبر ٣ فئات استراتيجية.' },
   ],
 };

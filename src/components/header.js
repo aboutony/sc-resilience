@@ -20,6 +20,10 @@ const BREADCRUMB_NARRATIVES = {
   'contract-management':  'breadcrumb.contractMgmt',
   'risk-dashboard':       'breadcrumb.riskDashboard',
   'compliance-docs':      'breadcrumb.complianceDocs',
+  'demand-planning':      'breadcrumb.demandPlanning',
+  'cost-engineering':     'breadcrumb.costEngineering',
+  'spend-analysis':       'breadcrumb.spendAnalysis',
+  'intelligent-reporting':'breadcrumb.intelligentReporting',
   'integration-settings': 'breadcrumb.integrationSettings',
   'user-profile':         'breadcrumb.userProfile',
 };

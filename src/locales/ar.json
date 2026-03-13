@@ -17,12 +17,17 @@
     "contractMgmt": "إدارة العقود",
     "riskDashboard": "لوحة المخاطر",
     "complianceDocs": "الامتثال والوثائق",
+    "demandPlanning": "تخطيط الطلب",
+    "costEngineering": "هندسة التكلفة",
+    "spendAnalysis": "تحليل الإنفاق",
+    "intelligentReporting": "الأوراكل",
     "integrationSettings": "إعدادات التكامل",
     "userProfile": "الملف الشخصي",
     "sections": {
       "sourceToPayChapter": "الفصل ١: من المصدر إلى الدفع",
       "inventoryLogisticsChapter": "الفصل ٢: المخزون واللوجستيات",
       "contractGovernanceChapter": "الفصل ٣: العقود والحوكمة",
+      "studiesAnalysisChapter": "الفصل ٤: الدراسات والتحليل",
       "systemConfig": "إعدادات النظام"
     }
   },
@@ -233,112 +238,45 @@
     "contractMgmt": "الفصل ٣.١: ذكاء العقود",
     "riskDashboard": "الفصل ٣.٢: مركز قيادة المخاطر",
     "complianceDocs": "الفصل ٣.٣: درع الامتثال",
+    "demandPlanning": "الفصل ٤.١: استبصار الطلب",
+    "costEngineering": "الفصل ٤.٢: ذكاء التكلفة",
+    "spendAnalysis": "الفصل ٤.٣: السجل الرئيسي",
+    "intelligentReporting": "الفصل ٤.٤: الأوراكل يتحدث",
     "integrationSettings": "النظام: هندسة التكامل",
     "userProfile": "النظام: ملف القيادة"
   },
-  "contractMgmt": {
-    "chapter": "الفصل ٣.١ — درع الحوكمة",
-    "title": "إدارة دورة حياة العقود",
-    "description": "يضمن الذكاء الاصطناعي مراقبة كل التزام وتحسينه وحمايته. من التفاوض إلى التجديد، تحمي المنصة مصالحك.",
-    "kpi": {
-      "activeContracts": "العقود النشطة",
-      "avgCompliance": "متوسط الامتثال",
-      "expiring30d": "تنتهي (٣٠ يوم)",
-      "aiSavings": "وفورات التفاوض بالذكاء الاصطناعي"
-    },
-    "panels": {
-      "registry": "سجل العقود",
-      "registrySub": "الاتفاقيات النشطة عبر جميع الموردين",
-      "contracts": "عقود",
-      "performance": "تقييم الأداء",
-      "performanceSub": "حلقة مغلقة: تسليم المرحلة الثانية مقابل مؤشرات العقد",
-      "closedLoop": "حلقة مغلقة",
-      "scope": "مراقب النطاق الذكي",
-      "scopeSub": "كشف تمدد النطاق والتحسين الديناميكي"
-    },
-    "table": {
-      "id": "رقم العقد",
-      "supplier": "المورد",
-      "type": "النوع",
-      "value": "القيمة",
-      "period": "الفترة",
-      "compliance": "الامتثال",
-      "status": "الحالة"
-    },
-    "perf": {
-      "contracted": "التعاقدي",
-      "actual": "الفعلي",
-      "quality": "الجودة"
-    },
-    "scope": {
-      "creep": "تمدد النطاق",
-      "renewal": "التجديد"
-    }
+  "demandPlanning": {
+    "chapter": "الفصل ٤.١ — استبصار الأوراكل",
+    "title": "تخطيط وتقييم الطلب",
+    "description": "يحول التنبؤ المتقدم البيانات التاريخية وإشارات السوق إلى تنبؤات طلب قابلة للتنفيذ. الأوراكل يرى المستقبل.",
+    "kpi": { "forecastAccuracy": "دقة التنبؤ", "planningHorizon": "أفق التخطيط", "autoTriggers": "محفزات تلقائية", "demandVolatility": "تقلب الطلب" },
+    "panels": { "forecast": "تنبؤ الطلب بالذكاء الاصطناعي", "forecastSub": "١٢ شهراً من الفعلي مقابل التنبؤ الذكي مع نطاقات الثقة", "scenario": "مخطط السيناريوهات", "scenarioSub": "أفضل / أساسي / أسوأ حالة مع محفزات المشتريات", "replenishment": "قائمة التجديد التلقائي", "replenishmentSub": "إدارة مخزون الأمان بالذكاء الاصطناعي" },
+    "chart": { "actual": "الطلب الفعلي", "predicted": "التنبؤ الذكي", "upperBand": "الحد الأعلى", "lowerBand": "الحد الأدنى" },
+    "scenario": { "growth": "النمو", "revenue": "الإيرادات", "triggers": "المحفزات" },
+    "replen": { "stock": "المخزون", "lead": "المهلة" }
   },
-  "riskDashboard": {
-    "chapter": "الفصل ٣.٢ — الرؤية الاستراتيجية العالمية",
-    "title": "استخبارات المخاطر ومحاكاة السيناريوهات",
-    "description": "انتقل إلى الخريطة الاستراتيجية. توقع الاضطرابات، حاكِ السيناريوهات، وفعّل خطط الطوارئ قبل تحقق التهديدات.",
-    "kpi": {
-      "threatScore": "مؤشر التهديد",
-      "predictedRisks": "المخاطر المتوقعة",
-      "mitigated": "تم التخفيف",
-      "responseTime": "متوسط وقت الاستجابة"
-    },
-    "panels": {
-      "riskMap": "خريطة المخاطر السيادية",
-      "riskMapSub": "تصور تهديدات شبكة الموردين العالمية",
-      "regions": "مناطق",
-      "whatIf": "محاكي ماذا لو",
-      "whatIfSub": "غيّر متغيرات المخاطر لرؤية التأثير التالي",
-      "interactive": "تفاعلي",
-      "contingency": "خطط الطوارئ",
-      "contingencySub": "بروتوكولات استجابة آلية معتمدة مسبقاً"
-    },
-    "map": {
-      "threats": "تهديدات"
-    },
-    "whatIf": {
-      "impact": "التأثير التالي",
-      "revenue": "إجمالي الإيرادات",
-      "cost": "تكلفة سلسلة التوريد",
-      "delivery": "التسليم في الوقت",
-      "supplierScore": "نقاط المورد",
-      "riskExposure": "التعرض للمخاطر"
-    },
-    "contingency": {
-      "trigger": "المحفز",
-      "savings": "الوفورات المقدرة"
-    }
+  "costEngineering": {
+    "chapter": "الفصل ٤.٢ — ذكاء التكلفة",
+    "title": "هندسة التكلفة وإدارة الفئات",
+    "description": "نمذجة التكلفة التنبؤية وتجزئة الفئات الذكية تمنع تسرب الإنفاق وتحسن استراتيجية المشتريات.",
+    "kpi": { "totalSpendYTD": "إجمالي الإنفاق", "costAvoidance": "تجنب التكاليف", "categoryCount": "الفئات", "spendLeakage": "تسرب الإنفاق" },
+    "panels": { "commodity": "مسار أسعار السلع", "commoditySub": "اتجاهات الأسعار المتوقعة حسب فئة المواد", "category": "مصفوفة الفئة × المخاطر", "categorySub": "الإنفاق لكل فئة مع تراكب مخاطر المرحلة الثالثة", "leakage": "كشف التسرب", "leakageSub": "شذوذات الإنفاق المكتشفة مع السبب الجذري", "detected": "مكتشف" },
+    "chart": { "steel": "الفولاذ والمعادن", "chemicals": "المواد الكيميائية الصناعية", "polymers": "البوليمرات" }
   },
-  "complianceDocs": {
-    "chapter": "الفصل ٣.٣ — درع الامتثال",
-    "title": "ذكاء الامتثال والتدقيق",
-    "description": "كل تغيير في العقد، كل فحص امتثال، كل تحديث تنظيمي — مسجل بشكل غير قابل للتغيير وقابل للتدقيق فوراً.",
-    "kpi": {
-      "regulatoryChecks": "الفحوصات التنظيمية",
-      "esgScore": "نقاط ESG",
-      "auditEvents": "أحداث التدقيق",
-      "policyUpdates": "تحديثات السياسات"
-    },
-    "panels": {
-      "auditTrail": "سجل التدقيق غير القابل للتغيير",
-      "auditTrailSub": "تاريخ العقود مع طوابع زمنية وتحكم بالإصدارات",
-      "immutable": "غير قابل للتغيير",
-      "regulatory": "التحديثات التنظيمية",
-      "regulatorySub": "مراقبة قوانين التجارة السعودية والعالمية",
-      "esg": "فحص ESG",
-      "esgSub": "العناية الواجبة والمصادر الأخلاقية للموردين",
-      "ethical": "المصادر الأخلاقية"
-    },
-    "esg": {
-      "supplier": "المورد",
-      "carbon": "الكربون",
-      "humanRights": "حقوق الإنسان",
-      "ethicalSourcing": "المصادر الأخلاقية",
-      "overall": "الإجمالي",
-      "trend": "الاتجاه"
-    }
+  "spendAnalysis": {
+    "chapter": "الفصل ٤.٣ — السجل الرئيسي",
+    "title": "تحليل إنفاق الشبكة",
+    "description": "كل ريال يُتتبع من أمر الشراء إلى فئة المخاطر. القصة المالية الكاملة لسلسلة التوريد.",
+    "kpi": { "networkSpend": "إنفاق الشبكة", "addressableSpend": "الإنفاق القابل للمعالجة", "savingsIdentified": "وفورات محددة", "complianceRate": "معدل الامتثال" },
+    "panels": { "waterfall": "شلال الإنفاق", "waterfallSub": "أوامر شراء المرحلة الأولى مصنفة حسب مخاطر المرحلة الثالثة", "crossPhase": "عبر المراحل", "supplierDist": "توزيع إنفاق الموردين", "supplierDistSub": "أكبر الموردين حسب الإنفاق مع تراكب المخاطر", "savings": "ذكاء الوفورات", "savingsSub": "فرص التحليل عبر المراحل" }
+  },
+  "reporting": {
+    "chapter": "الفصل ٤.٤ — الأوراكل يتحدث",
+    "title": "التقارير التنفيذية الذكية",
+    "description": "المنصة تتحدث. سرديات تنفيذية مولّدة بالذكاء الاصطناعي تشرح السبب وراء كل رقم، بلغة القيادة الاستراتيجية.",
+    "kpi": { "healthScore": "مؤشر الصحة", "insightsGenerated": "رؤى", "executiveReports": "تقارير", "actionItems": "إجراءات" },
+    "panels": { "healthScore": "صحة سلسلة التوريد", "healthScoreSub": "مؤشر المرونة الإجمالي مع التفصيل", "keyFindings": "النتائج الرئيسية", "keyFindingsSub": "رؤى حاسمة من جميع المراحل الأربع", "nlpSummary": "الملخص التنفيذي", "nlpSummarySub": "سرد استراتيجي مولّد بالذكاء الاصطناعي", "aiGenerated": "مولّد بالذكاء الاصطناعي" },
+    "health": { "procurement": "المشتريات", "logistics": "اللوجستيات", "governance": "الحوكمة", "analytics": "التحليلات" }
   },
   "placeholder": {
     "title": "الوحدة قيد التطوير",

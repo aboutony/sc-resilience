@@ -17,12 +17,17 @@
     "contractMgmt": "Contract Management",
     "riskDashboard": "Risk Dashboard",
     "complianceDocs": "Compliance & Docs",
+    "demandPlanning": "Demand Planning",
+    "costEngineering": "Cost Engineering",
+    "spendAnalysis": "Spend Analysis",
+    "intelligentReporting": "The Oracle",
     "integrationSettings": "Integration Settings",
     "userProfile": "User Profile",
     "sections": {
       "sourceToPayChapter": "Chapter 1: Source to Pay",
       "inventoryLogisticsChapter": "Chapter 2: Inventory & Logistics",
       "contractGovernanceChapter": "Chapter 3: Contract & Governance",
+      "studiesAnalysisChapter": "Chapter 4: Studies & Analysis",
       "systemConfig": "System Configuration"
     }
   },
@@ -218,7 +223,10 @@
     "delivery": "Delivery",
     "reliability": "Reliability",
     "sustainability": "Sustainability",
-    "comingSoon": "This module is being orchestrated. Coming soon."
+    "comingSoon": "This module is being orchestrated. Coming soon.",
+    "months": "months",
+    "suppliers": "suppliers",
+    "potential": "potential"
   },
   "breadcrumb": {
     "dashboard": "Chapter 1: Strategic Command",
@@ -233,112 +241,45 @@
     "contractMgmt": "Chapter 3.1: Contract Intelligence",
     "riskDashboard": "Chapter 3.2: Risk Command Center",
     "complianceDocs": "Chapter 3.3: Compliance Shield",
+    "demandPlanning": "Chapter 4.1: Demand Foresight",
+    "costEngineering": "Chapter 4.2: Cost Intelligence",
+    "spendAnalysis": "Chapter 4.3: The Master Ledger",
+    "intelligentReporting": "Chapter 4.4: The Oracle Speaks",
     "integrationSettings": "System: Integration Architecture",
     "userProfile": "System: User Command Profile"
   },
-  "contractMgmt": {
-    "chapter": "Chapter 3.1 — The Shield of Governance",
-    "title": "Contract Lifecycle Management",
-    "description": "AI-driven contract intelligence ensures every commitment is monitored, optimized, and protected. From negotiation to renewal, the platform guards your interests.",
-    "kpi": {
-      "activeContracts": "Active Contracts",
-      "avgCompliance": "Avg Compliance",
-      "expiring30d": "Expiring (30d)",
-      "aiSavings": "AI Negotiation Savings"
-    },
-    "panels": {
-      "registry": "Contract Registry",
-      "registrySub": "Active agreements across all suppliers",
-      "contracts": "contracts",
-      "performance": "Performance Evaluation",
-      "performanceSub": "Closed-loop: Phase Two delivery vs contract KPIs",
-      "closedLoop": "Closed Loop",
-      "scope": "AI Scope Monitor",
-      "scopeSub": "Dynamic scope-creep detection & optimization"
-    },
-    "table": {
-      "id": "Contract ID",
-      "supplier": "Supplier",
-      "type": "Type",
-      "value": "Value",
-      "period": "Period",
-      "compliance": "Compliance",
-      "status": "Status"
-    },
-    "perf": {
-      "contracted": "Contracted",
-      "actual": "Actual",
-      "quality": "Quality"
-    },
-    "scope": {
-      "creep": "Scope Creep",
-      "renewal": "Renewal"
-    }
+  "demandPlanning": {
+    "chapter": "Chapter 4.1 \u2014 The Oracle's Foresight",
+    "title": "Demand Planning & Assessment",
+    "description": "Advanced forecasting turns historical data and market signals into actionable demand predictions. The Oracle sees ahead.",
+    "kpi": { "forecastAccuracy": "Forecast Accuracy", "planningHorizon": "Planning Horizon", "autoTriggers": "Auto-Triggers", "demandVolatility": "Demand Volatility" },
+    "panels": { "forecast": "AI Demand Forecast", "forecastSub": "12-month actuals vs AI prediction with confidence bands", "scenario": "Scenario Planner", "scenarioSub": "Best / Base / Worst case with procurement triggers", "replenishment": "Auto-Replenishment Queue", "replenishmentSub": "AI-triggered safety stock management" },
+    "chart": { "actual": "Actual Demand", "predicted": "AI Predicted", "upperBand": "Upper Band", "lowerBand": "Lower Band" },
+    "scenario": { "growth": "Growth", "revenue": "Revenue", "triggers": "Triggers" },
+    "replen": { "stock": "Stock", "lead": "Lead" }
   },
-  "riskDashboard": {
-    "chapter": "Chapter 3.2 — Global Strategic Oversight",
-    "title": "Risk Intelligence & Scenario Simulation",
-    "description": "Zoom out to the strategic map. Predict disruptions, simulate scenarios, and deploy contingency plans before threats materialize.",
-    "kpi": {
-      "threatScore": "Threat Score",
-      "predictedRisks": "Predicted Risks",
-      "mitigated": "Mitigated",
-      "responseTime": "Avg Response Time"
-    },
-    "panels": {
-      "riskMap": "Sovereign Risk Map",
-      "riskMapSub": "Global supplier network threat visualization",
-      "regions": "regions",
-      "whatIf": "What-If Simulator",
-      "whatIfSub": "Toggle risk variables to see downstream impact",
-      "interactive": "Interactive",
-      "contingency": "Contingency Plans",
-      "contingencySub": "Pre-approved automated response protocols"
-    },
-    "map": {
-      "threats": "threats"
-    },
-    "whatIf": {
-      "impact": "Downstream Impact",
-      "revenue": "Total Revenue",
-      "cost": "Supply Chain Cost",
-      "delivery": "On-Time Delivery",
-      "supplierScore": "Supplier Score",
-      "riskExposure": "Risk Exposure"
-    },
-    "contingency": {
-      "trigger": "Trigger",
-      "savings": "Est. Savings"
-    }
+  "costEngineering": {
+    "chapter": "Chapter 4.2 \u2014 Cost Intelligence",
+    "title": "Cost Engineering & Category Management",
+    "description": "Predictive cost modeling and intelligent category segmentation prevent spend leakage and optimize procurement strategy.",
+    "kpi": { "totalSpendYTD": "Total Spend YTD", "costAvoidance": "Cost Avoidance", "categoryCount": "Categories", "spendLeakage": "Spend Leakage" },
+    "panels": { "commodity": "Commodity Price Trajectory", "commoditySub": "AI-predicted price trends by material class", "category": "Category × Risk Matrix", "categorySub": "Spend per category with Phase Three risk overlay", "leakage": "Leakage Detection", "leakageSub": "AI-flagged spend anomalies with root cause", "detected": "detected" },
+    "chart": { "steel": "Steel & Metals", "chemicals": "Industrial Chemicals", "polymers": "Polymers" }
   },
-  "complianceDocs": {
-    "chapter": "Chapter 3.3 — The Compliance Shield",
-    "title": "Compliance & Audit Intelligence",
-    "description": "Every contract change, every compliance check, every regulatory update — immutably recorded and instantly auditable.",
-    "kpi": {
-      "regulatoryChecks": "Regulatory Checks",
-      "esgScore": "ESG Score",
-      "auditEvents": "Audit Events",
-      "policyUpdates": "Policy Updates"
-    },
-    "panels": {
-      "auditTrail": "Immutable Audit Trail",
-      "auditTrailSub": "Time-stamped, version-controlled contract history",
-      "immutable": "Immutable",
-      "regulatory": "Regulatory Updates",
-      "regulatorySub": "Saudi & Global trade law monitoring",
-      "esg": "ESG Screening",
-      "esgSub": "Supplier due-diligence & ethical sourcing",
-      "ethical": "Ethical Sourcing"
-    },
-    "esg": {
-      "supplier": "Supplier",
-      "carbon": "Carbon",
-      "humanRights": "Human Rights",
-      "ethicalSourcing": "Ethical Sourcing",
-      "overall": "Overall",
-      "trend": "Trend"
-    }
+  "spendAnalysis": {
+    "chapter": "Chapter 4.3 \u2014 The Master Ledger",
+    "title": "Network Spend Analysis",
+    "description": "Every riyal traced from Purchase Order to risk category. The complete financial story of your supply chain.",
+    "kpi": { "networkSpend": "Network Spend", "addressableSpend": "Addressable Spend", "savingsIdentified": "Savings Identified", "complianceRate": "Compliance Rate" },
+    "panels": { "waterfall": "Spend Waterfall", "waterfallSub": "Phase One POs categorized by Phase Three risk", "crossPhase": "Cross-Phase", "supplierDist": "Supplier Spend Distribution", "supplierDistSub": "Top suppliers by total spend with risk overlay", "savings": "AI Savings Intelligence", "savingsSub": "Cross-phase analysis opportunities" }
+  },
+  "reporting": {
+    "chapter": "Chapter 4.4 \u2014 The Oracle Speaks",
+    "title": "Intelligent Executive Reporting",
+    "description": "The platform speaks. AI-generated executive narratives explain the why behind every figure, in the language of strategic leadership.",
+    "kpi": { "healthScore": "Health Score", "insightsGenerated": "Insights", "executiveReports": "Reports", "actionItems": "Action Items" },
+    "panels": { "healthScore": "Supply Chain Health", "healthScoreSub": "Overall resilience score with breakdown", "keyFindings": "Key Findings", "keyFindingsSub": "Critical insights from all 4 phases", "nlpSummary": "Executive Summary", "nlpSummarySub": "AI-generated strategic narrative", "aiGenerated": "AI Generated" },
+    "health": { "procurement": "Procurement", "logistics": "Logistics", "governance": "Governance", "analytics": "Analytics" }
   },
   "placeholder": {
     "title": "Module Under Development",
