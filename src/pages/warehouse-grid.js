@@ -1,61 +1,102 @@
+// ═══════════════════════════════════════════
+// Warehouse Grid – Operational Pulse
+// Zone Utilization · IoT Telemetry · Made-in-KSA
+// ═══════════════════════════════════════════
+
+import { i18n } from '../i18n.js';
+import { inventoryData } from '../data/mock-data.js';
 import { Registry } from '../infra/Registry.js';
-import * as AllMockData from '../data/mock-data.js'; 
 
 export function renderWarehouseGridPage() {
-    const dataSource = AllMockData.inventoryStubs || AllMockData.default?.inventoryStubs || AllMockData.warehouses || [];
-    const warehouses = Array.isArray(dataSource) ? dataSource : (dataSource.warehouses || []);
+  const warehouses = inventoryData.warehouses || [];
+  const iotSignals = inventoryData.iotSignals || [];
 
-    const content = `
-        <div class="p-6 bg-slate-950 min-h-screen">
-            <div class="flex justify-between items-center mb-8">
-                <div>
-                    <h1 class="text-3xl font-bold text-white tracking-tight uppercase">Warehouse Grid</h1>
-                    <p class="text-slate-400 mt-1">Strategic localization and zone utilization.</p>
-                </div>
-                <div class="flex gap-3 bg-slate-900/80 p-1 rounded-lg border border-slate-800">
-                    <button id="filter-all" class="px-4 py-2 rounded-md text-sm font-medium transition-all bg-blue-600 text-white shadow-lg">All Zones</button>
-                    <button id="filter-ksa" class="px-4 py-2 rounded-md text-sm font-medium transition-all text-slate-400 hover:text-white">
-                        <i class="fas fa-flag-checkered mr-2 text-green-500"></i>Made-in-KSA
-                    </button>
-                </div>
+  function fillColor(fill) {
+    if (fill >= 85) return 'var(--accent-danger)';
+    if (fill >= 60) return 'var(--accent-warning)';
+    return 'var(--accent-success)';
+  }
+
+  function fillBg(fill) {
+    if (fill >= 85) return 'rgba(248,81,73,0.1)';
+    if (fill >= 60) return 'rgba(245,158,11,0.1)';
+    return 'rgba(0,200,83,0.1)';
+  }
+
+  const page = document.createElement('div');
+  page.className = 'page-container';
+  page.innerHTML = `
+    <div class="page-header animate-fade-in-up">
+      <div class="page-header__chapter">Chapter 2.1 — Operational Pulse</div>
+      <h1 class="page-header__title">Warehouse Grid Intelligence</h1>
+      <p class="page-header__description">Master-grid for localized zone utilization, IoT telemetry, and Made-in-KSA asset tracking across all strategic facilities.</p>
+    </div>
+
+    <!-- IoT Signal Strip -->
+    <div class="kpi-grid" style="margin-bottom:var(--space-2xl);">
+      ${iotSignals.map((sig, idx) => `
+        <div class="kpi-card animate-fade-in-up" style="animation-delay:${0.1 + idx * 0.1}s">
+          <div class="kpi-card__header">
+            <div class="kpi-card__icon kpi-card__icon--${sig.alertLevel === 'critical' ? 'orange' : sig.alertLevel === 'warning' ? 'orange' : 'green'}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                <div class="text-slate-500 italic p-4">Accessing localized data stream...</div>
+            <span class="badge badge--${sig.alertLevel === 'critical' ? 'danger' : sig.alertLevel === 'warning' ? 'warning' : 'success'}" style="text-transform:uppercase;font-size:0.6rem;">${sig.alertLevel}</span>
+          </div>
+          <div class="kpi-card__value" style="font-size:1.2rem;">${sig.warehouse}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-sm);margin-top:var(--space-md);">
+            <div style="text-align:center;">
+              <div style="font-size:0.6rem;color:var(--text-tertiary);text-transform:uppercase;">Temp</div>
+              <div style="font-family:var(--font-mono);font-weight:700;font-size:0.95rem;color:var(--text-primary);">${sig.temp}&deg;C</div>
             </div>
+            <div style="text-align:center;">
+              <div style="font-size:0.6rem;color:var(--text-tertiary);text-transform:uppercase;">Humidity</div>
+              <div style="font-family:var(--font-mono);font-weight:700;font-size:0.95rem;color:var(--text-primary);">${sig.humidity}%</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:0.6rem;color:var(--text-tertiary);text-transform:uppercase;">RFID</div>
+              <div style="font-family:var(--font-mono);font-weight:700;font-size:0.95rem;color:var(--text-primary);">${sig.rfidScans.toLocaleString()}</div>
+            </div>
+          </div>
         </div>
-    `;
+      `).join('')}
+    </div>
 
-    setTimeout(() => {
-        const container = document.getElementById('grid-container');
-        if (!container) return;
-
-        const updateView = (onlyKSA = false) => {
-            const data = onlyKSA ? warehouses.filter(w => w.origin === 'KSA') : warehouses;
-            container.innerHTML = data.map(zone => `
-                <div class="bg-slate-900/40 border ${zone.origin === 'KSA' ? 'border-green-500/30' : 'border-slate-800'} p-5 rounded-2xl transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <i class="fas fa-warehouse ${zone.origin === 'KSA' ? 'text-green-400' : 'text-blue-400'}"></i>
-                    </div>
-                    <h3 class="text-white font-semibold">${zone.zoneName || 'Zone'}</h3>
-                    <p class="text-xs text-slate-500 font-mono">${zone.id || 'N/A'}</p>
-                    <div class="mt-4">
-                        <div class="flex justify-between text-xs mb-1">
-                            <span class="text-slate-400">Utilization</span>
-                            <span class="text-white">${zone.utilization || 0}%</span>
-                        </div>
-                        <div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-blue-500" style="width: ${zone.utilization || 0}%"></div>
-                        </div>
-                    </div>
+    <!-- Warehouse Heatmap Grids -->
+    ${warehouses.map((wh, whIdx) => `
+      <div class="card-panel animate-fade-in-up" style="animation-delay:${0.4 + whIdx * 0.15}s;margin-bottom:var(--space-xl);">
+        <div class="card-panel__header">
+          <div>
+            <div class="card-panel__title" style="display:flex;align-items:center;gap:var(--space-sm);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              ${wh.name}
+            </div>
+            <div class="card-panel__subtitle">${wh.id} · ${wh.city}</div>
+          </div>
+          <span class="badge badge--info">${wh.zones.length} Zones</span>
+        </div>
+        <div class="card-panel__body">
+          <div class="heatmap-grid" style="grid-template-columns:repeat(3,1fr);gap:var(--space-md);">
+            ${wh.zones.map(z => `
+              <div class="heatmap-cell" style="background:${fillBg(z.fill)};padding:var(--space-md);">
+                <div class="heatmap-cell__zone">${z.zone}</div>
+                <div class="heatmap-cell__pct" style="color:${fillColor(z.fill)};font-size:1.4rem;">${z.fill}%</div>
+                <div style="font-size:0.65rem;color:var(--text-tertiary);margin-top:var(--space-xs);">${z.category}</div>
+                <div style="display:flex;gap:var(--space-md);margin-top:var(--space-xs);">
+                  <span style="font-size:0.6rem;color:var(--text-tertiary);">${z.temp}&deg;C</span>
+                  <span style="font-size:0.6rem;color:var(--text-tertiary);">${z.humidity}% RH</span>
                 </div>
-            `).join('');
-        };
+                <div class="progress-bar" style="margin-top:var(--space-sm);height:4px;">
+                  <div class="progress-bar__fill" style="width:${z.fill}%;background:${fillColor(z.fill)};"></div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('')}
+  `;
 
-        updateView();
-        document.getElementById('filter-all').onclick = () => updateView(false);
-        document.getElementById('filter-ksa').onclick = () => updateView(true);
-        Registry.add({ id: 'warehouse-grid-logic', destroy: () => {} });
-    }, 0);
+  Registry.add({ id: 'warehouse-grid-logic', destroy: () => {} });
 
-    return content;
+  return page;
 }

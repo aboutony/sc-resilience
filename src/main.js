@@ -36,6 +36,8 @@ import { renderSpendAnalysisPage }       from './pages/spend-analysis.js';
 import { renderIntelligentReportingPage } from './pages/intelligent-reporting.js';
 import { renderIntegrationSettingsPage } from './pages/integration-settings.js';
 import { renderUserProfilePage }         from './pages/user-profile.js';
+import { renderWarehouseGridPage }        from './pages/warehouse-grid.js';
+import { renderStockVelocityPage }        from './pages/stock-velocity.js';
 
 // ─── App State ───
 let appShell = null;
@@ -62,6 +64,8 @@ const PAGE_LOADER = {
   'intelligent-reporting': () => import('./pages/intelligent-reporting.js').then(m => m.renderIntelligentReportingPage()),
   'integration-settings': () => import('./pages/integration-settings.js').then(m => m.renderIntegrationSettingsPage()),
   'user-profile':         () => import('./pages/user-profile.js').then(m => m.renderUserProfilePage()),
+  'warehouse-grid':       () => import('./pages/warehouse-grid.js').then(m => m.renderWarehouseGridPage()),
+  'stock-velocity':       () => import('./pages/stock-velocity.js').then(m => m.renderStockVelocityPage()),
 };
 
 // ─── Static Fallback Map (Fail-Safe) ───
@@ -86,6 +90,8 @@ const STATIC_PAGE_LOADER = {
   'intelligent-reporting': () => renderIntelligentReportingPage(),
   'integration-settings': () => renderIntegrationSettingsPage(),
   'user-profile':         () => renderUserProfilePage(),
+  'warehouse-grid':       () => renderWarehouseGridPage(),
+  'stock-velocity':       () => renderStockVelocityPage(),
 };
 
 // ─── Boot Sequence ───
