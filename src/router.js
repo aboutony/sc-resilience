@@ -4,6 +4,20 @@
 
 import { Registry } from './infra/Registry.js';
 
+// --- Imports for Content Modules ---
+import { renderLoginPage } from './pages/login.js';
+import { renderDashboardPage } from './pages/dashboard.js';
+import { renderMarketResearchPage } from './pages/market-research.js';
+import { renderSupplierSelectionPage } from './pages/supplier-selection.js';
+import { renderOrderManagementPage } from './pages/order-management.js';
+import { renderInventoryManagementPage } from './pages/inventory-management.js';
+import { renderWarehouseGridPage } from './pages/WarehouseGrid.js'; // New Peer Module
+import { renderReceivingQAPage } from './pages/receiving-qa.js';
+import { renderInvoicePaymentPage } from './pages/invoice-payment.js';
+import { renderSupplierMgmtPage } from './pages/supplier-mgmt.js';
+import { renderIntegrationSettingsPage } from './pages/integration-settings.js';
+import { renderUserProfilePage } from './pages/user-profile.js';
+
 // Route order defines the "chapter" order for narrative slide direction
 const ROUTE_ORDER = [
   'login',
@@ -11,6 +25,8 @@ const ROUTE_ORDER = [
   'market-research',
   'supplier-selection',
   'order-management',
+  'inventory-management',
+  'warehouse-grid', // The drill-down view
   'receiving-qa',
   'invoice-payment',
   'supplier-mgmt',
@@ -36,6 +52,20 @@ class Router {
   }
 
   start() {
+    // Register All Routes
+    this.register('login', renderLoginPage);
+    this.register('dashboard', renderDashboardPage);
+    this.register('market-research', renderMarketResearchPage);
+    this.register('supplier-selection', renderSupplierSelectionPage);
+    this.register('order-management', renderOrderManagementPage);
+    this.register('inventory-management', renderInventoryManagementPage);
+    this.register('warehouse-grid', renderWarehouseGridPage);
+    this.register('receiving-qa', renderReceivingQAPage);
+    this.register('invoice-payment', renderInvoicePaymentPage);
+    this.register('supplier-mgmt', renderSupplierMgmtPage);
+    this.register('integration-settings', renderIntegrationSettingsPage);
+    this.register('user-profile', renderUserProfilePage);
+
     window.addEventListener('hashchange', () => this.handleRoute());
     this.handleRoute();
   }
