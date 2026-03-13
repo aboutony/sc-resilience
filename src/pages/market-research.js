@@ -149,7 +149,7 @@ export function renderMarketResearchPage() {
             <div class="card-panel__subtitle">${i18n.t('marketResearch.panels.commodityTrendsSub')}</div>
           </div>
           <div class="card-panel__actions">
-            <button class="btn btn--ghost btn--sm">${i18n.t('common.export')}</button>
+            <button class="btn btn--ghost btn--sm" id="export-btn">📤 ${i18n.t('common.export')}</button>
           </div>
         </div>
         <div class="card-panel__body">
@@ -214,8 +214,8 @@ export function renderMarketResearchPage() {
           <div class="card-panel__subtitle" id="discovery-subtitle">${i18n.t('marketResearch.panels.supplierDiscoverySub')}</div>
         </div>
         <div class="card-panel__actions">
-          <button class="btn btn--ghost btn--sm">${i18n.t('common.filter')}</button>
-          <button class="btn btn--primary btn--sm">${i18n.t('common.viewAll')}</button>
+          <button class="btn btn--ghost btn--sm" id="discovery-filter-btn">🔍 ${i18n.t('common.filter')}</button>
+          <button class="btn btn--primary btn--sm" id="view-all-btn">${i18n.t('common.viewAll')} →</button>
         </div>
       </div>
       <div class="card-panel__body">
@@ -239,6 +239,62 @@ export function renderMarketResearchPage() {
         </div>
       </div>
     </div>
+
+    <!-- Export Modal -->
+    <div class="glass-modal-overlay" id="export-modal" style="display:none;">
+      <div class="glass-modal">
+        <div class="glass-modal__header">
+          <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);">📤 Export Commodity Data</h3>
+          <button class="glass-modal__close" id="export-modal-close">✕</button>
+        </div>
+        <div class="glass-modal__body">
+          <button class="export-option" id="export-pdf">
+            <span style="font-size:1.5rem;">📄</span>
+            <div><strong>Download Executive PDF</strong><br><span style="font-size:0.7rem;color:var(--text-tertiary);">AI-generated summary with charts and insights</span></div>
+          </button>
+          <button class="export-option" id="export-csv">
+            <span style="font-size:1.5rem;">📊</span>
+            <div><strong>Export CSV</strong><br><span style="font-size:0.7rem;color:var(--text-tertiary);">Raw data for 12 months × 4 commodities</span></div>
+          </button>
+          <button class="export-option" id="export-share">
+            <span style="font-size:1.5rem;">🔗</span>
+            <div><strong>Share Report</strong><br><span style="font-size:0.7rem;color:var(--text-tertiary);">Generate secure link for stakeholder access</span></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Slide-out Panel -->
+    <div class="filter-panel-overlay" id="filter-panel-overlay" style="display:none;"></div>
+    <div class="filter-panel" id="filter-panel">
+      <div class="filter-panel__header">
+        <h3 style="font-size:0.95rem;font-weight:700;color:var(--text-primary);">🔍 Advanced Filters</h3>
+        <button class="glass-modal__close" id="filter-panel-close">✕</button>
+      </div>
+      <div class="filter-panel__body">
+        <div class="filter-group">
+          <div class="filter-group__title">Region</div>
+          <label class="filter-check"><input type="checkbox" value="ksa" checked class="filter-region"> 🇸🇦 Saudi Arabia (KSA)</label>
+          <label class="filter-check"><input type="checkbox" value="gcc" checked class="filter-region"> 🌍 GCC (UAE, Kuwait, Bahrain, Qatar)</label>
+          <label class="filter-check"><input type="checkbox" value="global" checked class="filter-region"> 🌐 Global (Europe, Asia, Americas)</label>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group__title">Risk Level</div>
+          <label class="filter-check"><input type="checkbox" value="low" checked class="filter-risk"> <span class="badge badge--success" style="font-size:0.65rem;">● Low</span></label>
+          <label class="filter-check"><input type="checkbox" value="medium" checked class="filter-risk"> <span class="badge badge--warning" style="font-size:0.65rem;">● Medium</span></label>
+          <label class="filter-check"><input type="checkbox" value="high" checked class="filter-risk"> <span class="badge badge--danger" style="font-size:0.65rem;">● High</span></label>
+        </div>
+        <div class="filter-group">
+          <div class="filter-group__title">Local Content</div>
+          <label class="filter-check"><input type="checkbox" value="iktva" class="filter-iktva"> 🏛️ Iktva Certified Only</label>
+        </div>
+        <button class="btn btn--primary" id="filter-apply" style="width:100%;margin-top:var(--space-lg);">Apply Filters</button>
+        <button class="btn btn--ghost" id="filter-reset" style="width:100%;margin-top:var(--space-sm);">Reset All</button>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="mr-toast-container" style="position:fixed;top:80px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;"></div>
 
     <style>
       .grid-1-2 {
@@ -277,6 +333,86 @@ export function renderMarketResearchPage() {
         0% { background:rgba(239,68,68,0.15); }
         100% { background:transparent; }
       }
+
+      /* Export Modal */
+      .glass-modal-overlay {
+        position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:5000;
+        display:flex; align-items:center; justify-content:center;
+        backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+        animation:fadeIn 0.2s ease;
+      }
+      @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+      .glass-modal {
+        background:var(--surface-card); border:1px solid var(--border-primary);
+        border-radius:var(--radius-lg); box-shadow:var(--shadow-xl);
+        width:420px; max-width:90vw; overflow:hidden;
+        backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+        animation:scaleIn 0.25s ease;
+      }
+      @keyframes scaleIn { from{transform:scale(0.95);opacity:0} to{transform:scale(1);opacity:1} }
+      .glass-modal__header {
+        display:flex; justify-content:space-between; align-items:center;
+        padding:var(--space-lg); border-bottom:1px solid var(--border-secondary);
+      }
+      .glass-modal__close {
+        background:none; border:none; color:var(--text-tertiary); cursor:pointer;
+        font-size:1.1rem; padding:4px 8px; border-radius:var(--radius-sm);
+        transition:all 200ms ease;
+      }
+      .glass-modal__close:hover { background:var(--bg-secondary); color:var(--text-primary); }
+      .glass-modal__body { padding:var(--space-lg); display:flex; flex-direction:column; gap:var(--space-md); }
+      .export-option {
+        display:flex; align-items:center; gap:var(--space-md);
+        padding:var(--space-md); border-radius:var(--radius-md);
+        background:var(--bg-secondary); border:1px solid var(--border-secondary);
+        cursor:pointer; transition:all 300ms ease; text-align:start;
+        color:var(--text-primary); font-size:0.8rem;
+      }
+      .export-option:hover { border-color:var(--accent-primary); background:rgba(26,86,219,0.05); transform:translateY(-1px); }
+
+      /* Filter Panel */
+      .filter-panel-overlay {
+        position:fixed; inset:0; background:rgba(0,0,0,0.3); z-index:4999;
+      }
+      .filter-panel {
+        position:fixed; top:0; right:-360px; width:340px; height:100vh;
+        background:var(--surface-card); border-left:1px solid var(--border-primary);
+        box-shadow:var(--shadow-xl); z-index:5000;
+        transition:right 300ms ease;
+        backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+        display:flex; flex-direction:column;
+      }
+      .filter-panel--open { right:0; }
+      .filter-panel__header {
+        display:flex; justify-content:space-between; align-items:center;
+        padding:var(--space-lg); border-bottom:1px solid var(--border-secondary);
+      }
+      .filter-panel__body { padding:var(--space-lg); flex:1; overflow-y:auto; }
+      .filter-group { margin-bottom:var(--space-lg); }
+      .filter-group__title {
+        font-size:0.7rem; font-weight:600; text-transform:uppercase;
+        letter-spacing:0.06em; color:var(--text-tertiary); margin-bottom:var(--space-sm);
+      }
+      .filter-check {
+        display:flex; align-items:center; gap:var(--space-sm);
+        padding:6px 0; font-size:0.8rem; color:var(--text-primary); cursor:pointer;
+      }
+      .filter-check input { accent-color:var(--accent-primary); }
+
+      /* Toast */
+      .mr-toast {
+        padding:12px 20px; border-radius:var(--radius-md);
+        background:var(--surface-card); border:1px solid var(--border-primary);
+        box-shadow:var(--shadow-lg); font-size:0.8rem; color:var(--text-primary);
+        display:flex; align-items:center; gap:8px;
+        animation:slideInRight 0.3s ease; min-width:280px;
+        backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+      }
+      .mr-toast--success { border-left:3px solid var(--accent-success); }
+      .mr-toast--info { border-left:3px solid var(--accent-primary); }
+      .mr-toast--warning { border-left:3px solid var(--accent-warning); }
+      @keyframes slideInRight { from{transform:translateX(100px);opacity:0} to{transform:translateX(0);opacity:1} }
+      @keyframes slideOutRight { from{transform:translateX(0);opacity:1} to{transform:translateX(100px);opacity:0} }
     </style>
   `;
 
@@ -284,13 +420,106 @@ export function renderMarketResearchPage() {
   requestAnimationFrame(() => {
     setTimeout(() => initCommodityChart(), 100);
 
-    // AI Feed action buttons → navigate
+    // AI Feed action buttons → toast + navigate
     page.querySelectorAll('.ai-action-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
+        const label = btn.textContent.trim();
         const route = btn.dataset.route;
-        if (route) window.location.hash = '#/' + route;
+        // Show toast for simulated actions
+        const simulatedActions = ['Initiate Onboarding', 'بدء التأهيل', 'View Compliance', 'عرض الامتثال'];
+        if (simulatedActions.some(a => label.includes(a))) {
+          showMRToast('info', `⏳ "${label}" initiated — AI workflow is being prepared. You will be notified when ready.`);
+        } else {
+          showMRToast('success', `✓ Navigating to ${label}...`);
+          setTimeout(() => { if (route) window.location.hash = '#/' + route; }, 800);
+        }
       });
+    });
+
+    // Export button → modal
+    page.querySelector('#export-btn')?.addEventListener('click', () => {
+      page.querySelector('#export-modal').style.display = 'flex';
+    });
+    page.querySelector('#export-modal-close')?.addEventListener('click', () => {
+      page.querySelector('#export-modal').style.display = 'none';
+    });
+    page.querySelector('#export-modal')?.addEventListener('click', (e) => {
+      if (e.target === page.querySelector('#export-modal')) {
+        page.querySelector('#export-modal').style.display = 'none';
+      }
+    });
+    page.querySelector('#export-pdf')?.addEventListener('click', () => {
+      page.querySelector('#export-modal').style.display = 'none';
+      showMRToast('success', '📄 Executive PDF generated — downloading now...');
+    });
+    page.querySelector('#export-csv')?.addEventListener('click', () => {
+      page.querySelector('#export-modal').style.display = 'none';
+      showMRToast('success', '📊 CSV exported — 48 data points across 4 commodities.');
+    });
+    page.querySelector('#export-share')?.addEventListener('click', () => {
+      page.querySelector('#export-modal').style.display = 'none';
+      showMRToast('info', '🔗 Secure report link generated — copied to clipboard.');
+    });
+
+    // Filter button → slide-out panel
+    const filterPanel = page.querySelector('#filter-panel');
+    const filterOverlay = page.querySelector('#filter-panel-overlay');
+    page.querySelector('#discovery-filter-btn')?.addEventListener('click', () => {
+      filterPanel.classList.add('filter-panel--open');
+      filterOverlay.style.display = 'block';
+    });
+    const closeFilterPanel = () => {
+      filterPanel.classList.remove('filter-panel--open');
+      filterOverlay.style.display = 'none';
+    };
+    page.querySelector('#filter-panel-close')?.addEventListener('click', closeFilterPanel);
+    filterOverlay?.addEventListener('click', closeFilterPanel);
+
+    // Apply filters
+    page.querySelector('#filter-apply')?.addEventListener('click', () => {
+      const regionChecks = page.querySelectorAll('.filter-region:checked');
+      const riskChecks = page.querySelectorAll('.filter-risk:checked');
+      const iktvaOnly = page.querySelector('.filter-iktva')?.checked;
+
+      const regions = Array.from(regionChecks).map(c => c.value);
+      let filtered = [...suppliers];
+
+      // Region filter
+      if (regions.length < 3) {
+        filtered = filtered.filter(s => {
+          if (regions.includes('ksa') && s.isKSA) return true;
+          if (regions.includes('gcc') && ['UAE', 'Kuwait', 'Bahrain', 'Qatar', 'Oman'].includes(s.region)) return true;
+          if (regions.includes('global') && !s.isKSA && !['UAE', 'Kuwait', 'Bahrain', 'Qatar', 'Oman'].includes(s.region)) return true;
+          return false;
+        });
+      }
+
+      // Iktva filter
+      if (iktvaOnly) {
+        filtered = filtered.filter(s => s.isVision2030Certified);
+      }
+
+      const tbody = page.querySelector('#supplier-table-body');
+      if (tbody) tbody.innerHTML = renderSupplierRows(filtered.length > 0 ? filtered : suppliers);
+
+      closeFilterPanel();
+      showMRToast('success', `🔍 Filters applied — showing ${filtered.length} supplier${filtered.length !== 1 ? 's' : ''}.`);
+    });
+
+    // Reset filters
+    page.querySelector('#filter-reset')?.addEventListener('click', () => {
+      page.querySelectorAll('.filter-region, .filter-risk').forEach(c => c.checked = true);
+      page.querySelector('.filter-iktva').checked = false;
+      const tbody = page.querySelector('#supplier-table-body');
+      if (tbody) tbody.innerHTML = renderSupplierRows(suppliers.slice(0, 6));
+      closeFilterPanel();
+      showMRToast('info', '↩ Filters reset to defaults.');
+    });
+
+    // View All button → navigate to full supplier directory
+    page.querySelector('#view-all-btn')?.addEventListener('click', () => {
+      window.location.hash = '#/supplier-selection';
     });
 
     // Risk Matrix cell clicks → filter supplier table

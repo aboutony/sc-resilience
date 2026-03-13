@@ -8,28 +8,38 @@ import { i18n } from './i18n.js';
 import { router } from './router.js';
 import { renderSidebar, updateSidebarActive, updateSidebarLabels } from './components/sidebar.js';
 import { renderHeader, updateBreadcrumb } from './components/header.js';
+
+// ─── Only login is static (first screen) ───
 import { renderLoginPage } from './pages/login.js';
-import { renderDashboardPage } from './pages/dashboard.js';
-import { renderMarketResearchPage } from './pages/market-research.js';
-import { renderSupplierSelectionPage } from './pages/supplier-selection.js';
-import { renderOrderManagementPage } from './pages/order-management.js';
-import { renderReceivingQAPage } from './pages/receiving-qa.js';
-import { renderInvoicePaymentPage } from './pages/invoice-payment.js';
-import { renderSupplierMgmtPage } from './pages/supplier-mgmt.js';
-import { renderIntegrationSettingsPage } from './pages/integration-settings.js';
-import { renderUserProfilePage } from './pages/user-profile.js';
-import { renderInventoryManagementPage } from './pages/inventory-management.js';
-import { renderLogisticsManagementPage } from './pages/logistics-management.js';
-import { renderContractManagementPage } from './pages/contract-management.js';
-import { renderRiskDashboardPage } from './pages/risk-dashboard.js';
-import { renderComplianceDocsPage } from './pages/compliance-docs.js';
-import { renderDemandPlanningPage } from './pages/demand-planning.js';
-import { renderCostEngineeringPage } from './pages/cost-engineering.js';
-import { renderSpendAnalysisPage } from './pages/spend-analysis.js';
-import { renderIntelligentReportingPage } from './pages/intelligent-reporting.js';
 
 // ─── App State ───
 let appShell = null;
+
+// ─── Page Import Map (Lazy) ───
+// Each route maps to a dynamic import + its named export.
+// Pages are loaded on-demand, keeping the initial bundle lean
+// and preventing the IDE language server from choking on the
+// full module graph (fixes -32099 stream crashes).
+const PAGE_LOADER = {
+  'dashboard':            () => import('./pages/dashboard.js').then(m => m.renderDashboardPage()),
+  'market-research':      () => import('./pages/market-research.js').then(m => m.renderMarketResearchPage()),
+  'supplier-selection':   () => import('./pages/supplier-selection.js').then(m => m.renderSupplierSelectionPage()),
+  'order-management':     () => import('./pages/order-management.js').then(m => m.renderOrderManagementPage()),
+  'receiving-qa':         () => import('./pages/receiving-qa.js').then(m => m.renderReceivingQAPage()),
+  'invoice-payment':      () => import('./pages/invoice-payment.js').then(m => m.renderInvoicePaymentPage()),
+  'supplier-mgmt':        () => import('./pages/supplier-mgmt.js').then(m => m.renderSupplierMgmtPage()),
+  'inventory-management': () => import('./pages/inventory-management.js').then(m => m.renderInventoryManagementPage()),
+  'logistics-management': () => import('./pages/logistics-management.js').then(m => m.renderLogisticsManagementPage()),
+  'contract-management':  () => import('./pages/contract-management.js').then(m => m.renderContractManagementPage()),
+  'risk-dashboard':       () => import('./pages/risk-dashboard.js').then(m => m.renderRiskDashboardPage()),
+  'compliance-docs':      () => import('./pages/compliance-docs.js').then(m => m.renderComplianceDocsPage()),
+  'demand-planning':      () => import('./pages/demand-planning.js').then(m => m.renderDemandPlanningPage()),
+  'cost-engineering':     () => import('./pages/cost-engineering.js').then(m => m.renderCostEngineeringPage()),
+  'spend-analysis':       () => import('./pages/spend-analysis.js').then(m => m.renderSpendAnalysisPage()),
+  'intelligent-reporting': () => import('./pages/intelligent-reporting.js').then(m => m.renderIntelligentReportingPage()),
+  'integration-settings': () => import('./pages/integration-settings.js').then(m => m.renderIntegrationSettingsPage()),
+  'user-profile':         () => import('./pages/user-profile.js').then(m => m.renderUserProfilePage()),
+};
 
 // ─── Boot Sequence ───
 function boot() {
@@ -88,7 +98,7 @@ function showLogin() {
   appShell = null;
 }
 
-function showAuthenticatedRoute(route) {
+async function showAuthenticatedRoute(route) {
   // Build app shell if needed
   if (!appShell) {
     buildAppShell();
@@ -97,7 +107,7 @@ function showAuthenticatedRoute(route) {
   const main = document.getElementById('main-content');
   if (!main) return;
 
-  // Exit animation — Refinement #5: 300ms ease-in-out
+  // Exit animation — 300ms ease-in-out gold standard
   const oldContent = main.querySelector('.page-transition');
   if (oldContent) {
     oldContent.style.opacity = '0';
@@ -105,68 +115,38 @@ function showAuthenticatedRoute(route) {
     oldContent.style.transition = 'all 300ms ease-in-out';
   }
 
-  setTimeout(() => {
-    main.innerHTML = '';
+  // Wait for exit animation, then swap
+  const delay = oldContent ? 300 : 0;
+  await new Promise(resolve => setTimeout(resolve, delay));
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'page-transition slide-enter';
+  main.innerHTML = '';
 
-    const pageContent = getPageContent(route);
-    if (pageContent instanceof HTMLElement) {
-      wrapper.appendChild(pageContent);
-    } else if (typeof pageContent === 'string') {
-      wrapper.innerHTML = pageContent;
-    }
+  const wrapper = document.createElement('div');
+  wrapper.className = 'page-transition slide-enter';
 
-    main.appendChild(wrapper);
+  // ─── Dynamic page load ───
+  const pageContent = await getPageContent(route);
+  if (pageContent instanceof HTMLElement) {
+    wrapper.appendChild(pageContent);
+  } else if (typeof pageContent === 'string') {
+    wrapper.innerHTML = pageContent;
+  }
 
-    // Update sidebar and breadcrumb
-    updateSidebarActive(route);
-    updateBreadcrumb(route);
-  }, oldContent ? 300 : 0);
+  main.appendChild(wrapper);
+
+  // Update sidebar and breadcrumb
+  updateSidebarActive(route);
+  updateBreadcrumb(route);
 }
 
-function getPageContent(route) {
-  switch (route) {
-    case 'dashboard':
-      return renderDashboardPage();
-    case 'market-research':
-      return renderMarketResearchPage();
-    case 'supplier-selection':
-      return renderSupplierSelectionPage();
-    case 'order-management':
-      return renderOrderManagementPage();
-    case 'receiving-qa':
-      return renderReceivingQAPage();
-    case 'invoice-payment':
-      return renderInvoicePaymentPage();
-    case 'supplier-mgmt':
-      return renderSupplierMgmtPage();
-    case 'inventory-management':
-      return renderInventoryManagementPage();
-    case 'logistics-management':
-      return renderLogisticsManagementPage();
-    case 'contract-management':
-      return renderContractManagementPage();
-    case 'risk-dashboard':
-      return renderRiskDashboardPage();
-    case 'compliance-docs':
-      return renderComplianceDocsPage();
-    case 'demand-planning':
-      return renderDemandPlanningPage();
-    case 'cost-engineering':
-      return renderCostEngineeringPage();
-    case 'spend-analysis':
-      return renderSpendAnalysisPage();
-    case 'intelligent-reporting':
-      return renderIntelligentReportingPage();
-    case 'integration-settings':
-      return renderIntegrationSettingsPage();
-    case 'user-profile':
-      return renderUserProfilePage();
-    default:
-      return renderDashboardPage();
+async function getPageContent(route) {
+  const loader = PAGE_LOADER[route];
+  if (loader) {
+    return await loader();
   }
+  // Fallback: dashboard
+  const fallback = PAGE_LOADER['dashboard'];
+  return await fallback();
 }
 
 function buildAppShell() {
@@ -200,3 +180,12 @@ function buildAppShell() {
 
 // ─── Initialize ───
 document.addEventListener('DOMContentLoaded', boot);
+
+// ─── HMR Support ───
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    window.removeEventListener('hashchange', handleHashChange);
+    appShell = null;
+  });
+  import.meta.hot.accept();
+}
