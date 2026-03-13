@@ -1,0 +1,347 @@
+{
+  "app": {
+    "name": "مرونة سلسلة التوريد",
+    "subtitle": "منصة مدعومة بالذكاء الاصطناعي",
+    "loading": "جارٍ تهيئة الذكاء السيادي..."
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "marketResearch": "أبحاث السوق",
+    "supplierSelection": "اختيار الموردين",
+    "orderManagement": "إدارة الطلبات",
+    "receivingQA": "الاستلام والجودة",
+    "invoicePayment": "الفواتير والمدفوعات",
+    "supplierMgmt": "إدارة الموردين",
+    "inventoryMgmt": "إدارة المخزون",
+    "logisticsMgmt": "إدارة اللوجستيات",
+    "contractMgmt": "إدارة العقود",
+    "riskDashboard": "لوحة المخاطر",
+    "complianceDocs": "الامتثال والوثائق",
+    "integrationSettings": "إعدادات التكامل",
+    "userProfile": "الملف الشخصي",
+    "sections": {
+      "sourceToPayChapter": "الفصل ١: من المصدر إلى الدفع",
+      "inventoryLogisticsChapter": "الفصل ٢: المخزون واللوجستيات",
+      "contractGovernanceChapter": "الفصل ٣: العقود والحوكمة",
+      "systemConfig": "إعدادات النظام"
+    }
+  },
+  "header": {
+    "notifications": "الإشعارات",
+    "logout": "تسجيل الخروج",
+    "profile": "الملف الشخصي"
+  },
+  "login": {
+    "title": "مرحباً بعودتك",
+    "subtitle": "سجّل الدخول إلى مركز قيادة سلسلة التوريد",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "signIn": "تسجيل الدخول",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "emailPlaceholder": "name@company.com",
+    "passwordPlaceholder": "أدخل كلمة المرور"
+  },
+  "dashboard": {
+    "chapter": "الفصل ١ — البداية الذكية",
+    "title": "ذكاء المصدر إلى الدفع",
+    "description": "مركز القيادة الاستراتيجي لدورة حياة المصدر إلى الدفع بالكامل. رؤى مدعومة بالذكاء الاصطناعي تقود كل قرار من اكتشاف السوق إلى تنفيذ الدفع.",
+    "kpi": {
+      "totalSuppliers": "الموردون النشطون",
+      "marketRisk": "مؤشر مخاطر السوق",
+      "costSavings": "وفورات التكلفة",
+      "pendingOrders": "الطلبات المعلقة"
+    }
+  },
+  "marketResearch": {
+    "chapter": "الفصل ١.١ — الاكتشاف",
+    "title": "أبحاث السوق بالذكاء الاصطناعي",
+    "description": "تقوم المنصة بمسح الأسواق العالمية وتحليل اتجاهات السلع واكتشاف الموردين قبل أن تدرك حاجتك إليهم.",
+    "kpi": {
+      "suppliersAnalyzed": "موردون تم تحليلهم",
+      "marketsMonitored": "أسواق مراقبة",
+      "riskAlerts": "تنبيهات المخاطر",
+      "newDiscoveries": "اكتشافات جديدة"
+    },
+    "panels": {
+      "aiInsights": "تغذية الذكاء الاصطناعي",
+      "aiInsightsSub": "إشارات السوق الفورية",
+      "commodityTrends": "اتجاهات أسعار السلع",
+      "commodityTrendsSub": "تحليل متجدد لـ ١٢ شهراً",
+      "riskMatrix": "مصفوفة تقييم المخاطر",
+      "riskMatrixSub": "تصنيف المخاطر حسب الفئة والمنطقة",
+      "supplierDiscovery": "اكتشاف الموردين العالميين",
+      "supplierDiscoverySub": "موردون محتملون حددهم الذكاء الاصطناعي"
+    }
+  },
+  "supplierSelection": {
+    "chapter": "الفصل ١.٢ — الاختيار",
+    "title": "اختيار الموردين بالذكاء الاصطناعي",
+    "description": "يقوم الذكاء الاصطناعي بتقييم وتسجيل والتوصية بالموردين بناءً على تحسين التكلفة وتوقع الموثوقية والامتثال البيئي والاجتماعي.",
+    "kpi": {
+      "evaluated": "تم تقييمهم",
+      "shortlisted": "في القائمة المختصرة",
+      "avgScore": "متوسط التقييم",
+      "esgCompliant": "متوافقون مع ESG"
+    },
+    "panels": {
+      "topRecommendations": "توصيات الذكاء الاصطناعي",
+      "topRecommendationsSub": "أفضل الموردين حسب الثقة",
+      "costAnalysis": "تحليل تحسين التكلفة",
+      "costAnalysisSub": "مقارنة التكلفة الإجمالية للملكية",
+      "performanceRadar": "رادار الأداء",
+      "performanceRadarSub": "تقييم متعدد الأبعاد",
+      "esgScoring": "البيئة والمجتمع والحوكمة",
+      "esgScoringSub": "تقييم الاستدامة"
+    }
+  },
+  "inventoryMgmt": {
+    "chapter": "الفصل ٢.١ — نبض البضائع",
+    "title": "ذكاء المخزون بالذكاء الاصطناعي",
+    "description": "تستشعر المنصة تحولات الطلب وتروي قصة مستويات المخزون المحسّنة. إشارات إنترنت الأشياء الفورية والتحليلات التنبؤية تدفع التجديد الآلي عبر شبكة المستودعات بالكامل.",
+    "kpi": {
+      "skusTracked": "وحدات التخزين المتتبعة",
+      "stockAccuracy": "دقة المخزون",
+      "reorderRate": "نقاط إعادة الطلب",
+      "wasteReduction": "تقليل الهدر"
+    },
+    "panels": {
+      "demandForecast": "التنبؤ بالطلب بالذكاء الاصطناعي",
+      "demandForecastSub": "توقع ١٢ شهراً مقابل الفعلي مع نطاق الثقة",
+      "warehouseHeatmap": "خريطة حرارية لسعة المستودع",
+      "warehouseHeatmapSub": "استخدام المناطق عبر ٣ منشآت",
+      "iotFeed": "شبكة أجهزة الاستشعار",
+      "iotFeedSub": "مراقبة بيئية فورية",
+      "slowMovers": "المخزون بطيء الحركة والمتقادم",
+      "slowMoversSub": "تقليل الهدر والتصرف بالذكاء الاصطناعي",
+      "sustainability": "الاستدامة"
+    },
+    "table": {
+      "sku": "رمز SKU",
+      "item": "الصنف",
+      "category": "الفئة",
+      "daysOnHand": "أيام التخزين",
+      "value": "القيمة (ر.س)",
+      "warehouse": "المستودع",
+      "aiDisposition": "توصية الذكاء الاصطناعي"
+    },
+    "chart": {
+      "actual": "الطلب الفعلي",
+      "predicted": "توقع الذكاء الاصطناعي",
+      "confidence": "نطاق الثقة"
+    },
+    "iot": {
+      "temp": "الحرارة",
+      "humidity": "الرطوبة",
+      "rfidScans": "مسح RFID"
+    }
+  },
+  "logisticsMgmt": {
+    "chapter": "الفصل ٢.٢ — الحركة والتسليم",
+    "title": "تنسيق اللوجستيات بالذكاء الاصطناعي",
+    "description": "سرد البضائع المتحركة. يحسّن الذكاء الاصطناعي المسارات ويتوقع التأخيرات ويعيد توجيه الشحنات ديناميكياً للحفاظ على نبض سلسلة التوريد.",
+    "kpi": {
+      "activeShipments": "الشحنات النشطة",
+      "onTimeDelivery": "التسليم في الوقت",
+      "avgTransitDays": "أيام العبور",
+      "carbonSaved": "الكربون الموفر (طن)"
+    },
+    "panels": {
+      "routeOptimization": "تحسين تكلفة المسارات",
+      "routeOptimizationSub": "تحليل تكاليف النقل بالذكاء الاصطناعي",
+      "savings": "وفورات",
+      "contingency": "ذكاء الطوارئ",
+      "contingencySub": "مراقبة الاختناقات فورياً وإعادة التوجيه",
+      "inbound": "خط أنابيب اللوجستيات الواردة",
+      "inboundSub": "تتبع الشحنات المرتبطة بأوامر الشراء",
+      "shipments": "شحنات",
+      "warehouseOps": "عمليات انتقاء المستودع",
+      "warehouseOpsSub": "إدارة التسلسل والطوابير الذكية"
+    },
+    "table": {
+      "poNumber": "رقم أمر الشراء",
+      "supplier": "المورد",
+      "origin": "المصدر",
+      "destination": "الوجهة",
+      "carrier": "الناقل",
+      "eta": "الوصول المتوقع",
+      "progress": "التقدم",
+      "status": "الحالة"
+    },
+    "picking": {
+      "completed": "مكتمل",
+      "inboundPOs": "أوامر الشراء الواردة"
+    }
+  },
+  "integrationSettings": {
+    "chapter": "إعدادات النظام",
+    "title": "إعدادات التكامل",
+    "description": "إدارة المزامنة الثنائية الفورية مع أنظمة تخطيط الموارد ومنافذ الدفع للحفاظ على مصدر واحد للحقيقة.",
+    "erp": {
+      "title": "موصلات ERP",
+      "subtitle": "تكامل تخطيط موارد المؤسسات"
+    },
+    "payment": {
+      "title": "قنوات الدفع",
+      "subtitle": "اتصالات البنوك وبوابات الدفع"
+    },
+    "physical": {
+      "title": "المزامنة الفعلية لـ ERP",
+      "subtitle": "تكامل استلام البضائع وحركة المخزون"
+    },
+    "syncDirection": "اتجاه المزامنة",
+    "bidirectional": "ثنائي الاتجاه",
+    "enabled": "مفعّل",
+    "disabled": "معطّل",
+    "lastSync": "آخر مزامنة",
+    "syncNow": "مزامنة الآن",
+    "connected": "متصل",
+    "disconnected": "غير متصل",
+    "configure": "تكوين"
+  },
+  "common": {
+    "viewAll": "عرض الكل",
+    "viewDetails": "عرض التفاصيل",
+    "export": "تصدير",
+    "filter": "تصفية",
+    "search": "بحث",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "high": "عالي",
+    "medium": "متوسط",
+    "low": "منخفض",
+    "region": "المنطقة",
+    "category": "الفئة",
+    "score": "التقييم",
+    "status": "الحالة",
+    "quality": "الجودة",
+    "cost": "التكلفة",
+    "delivery": "التسليم",
+    "reliability": "الموثوقية",
+    "sustainability": "الاستدامة",
+    "comingSoon": "هذه الوحدة قيد التطوير. قريباً."
+  },
+  "breadcrumb": {
+    "dashboard": "الفصل ١: القيادة الاستراتيجية",
+    "marketResearch": "الفصل ١.١: الاكتشاف وذكاء السوق",
+    "supplierSelection": "الفصل ١.٢: الاختيار بالذكاء الاصطناعي",
+    "orderManagement": "الفصل ١.٣: تنسيق الطلبات",
+    "receivingQA": "الفصل ١.٤: الاستلام وضمان الجودة",
+    "invoicePayment": "الفصل ١.٥: تسوية الفواتير والدفع",
+    "supplierMgmt": "الفصل ١.٦: إدارة دورة حياة الموردين",
+    "inventoryMgmt": "الفصل ٢.١: ذكاء المخزون",
+    "logisticsMgmt": "الفصل ٢.٢: تنسيق اللوجستيات",
+    "contractMgmt": "الفصل ٣.١: ذكاء العقود",
+    "riskDashboard": "الفصل ٣.٢: مركز قيادة المخاطر",
+    "complianceDocs": "الفصل ٣.٣: درع الامتثال",
+    "integrationSettings": "النظام: هندسة التكامل",
+    "userProfile": "النظام: ملف القيادة"
+  },
+  "contractMgmt": {
+    "chapter": "الفصل ٣.١ — درع الحوكمة",
+    "title": "إدارة دورة حياة العقود",
+    "description": "يضمن الذكاء الاصطناعي مراقبة كل التزام وتحسينه وحمايته. من التفاوض إلى التجديد، تحمي المنصة مصالحك.",
+    "kpi": {
+      "activeContracts": "العقود النشطة",
+      "avgCompliance": "متوسط الامتثال",
+      "expiring30d": "تنتهي (٣٠ يوم)",
+      "aiSavings": "وفورات التفاوض بالذكاء الاصطناعي"
+    },
+    "panels": {
+      "registry": "سجل العقود",
+      "registrySub": "الاتفاقيات النشطة عبر جميع الموردين",
+      "contracts": "عقود",
+      "performance": "تقييم الأداء",
+      "performanceSub": "حلقة مغلقة: تسليم المرحلة الثانية مقابل مؤشرات العقد",
+      "closedLoop": "حلقة مغلقة",
+      "scope": "مراقب النطاق الذكي",
+      "scopeSub": "كشف تمدد النطاق والتحسين الديناميكي"
+    },
+    "table": {
+      "id": "رقم العقد",
+      "supplier": "المورد",
+      "type": "النوع",
+      "value": "القيمة",
+      "period": "الفترة",
+      "compliance": "الامتثال",
+      "status": "الحالة"
+    },
+    "perf": {
+      "contracted": "التعاقدي",
+      "actual": "الفعلي",
+      "quality": "الجودة"
+    },
+    "scope": {
+      "creep": "تمدد النطاق",
+      "renewal": "التجديد"
+    }
+  },
+  "riskDashboard": {
+    "chapter": "الفصل ٣.٢ — الرؤية الاستراتيجية العالمية",
+    "title": "استخبارات المخاطر ومحاكاة السيناريوهات",
+    "description": "انتقل إلى الخريطة الاستراتيجية. توقع الاضطرابات، حاكِ السيناريوهات، وفعّل خطط الطوارئ قبل تحقق التهديدات.",
+    "kpi": {
+      "threatScore": "مؤشر التهديد",
+      "predictedRisks": "المخاطر المتوقعة",
+      "mitigated": "تم التخفيف",
+      "responseTime": "متوسط وقت الاستجابة"
+    },
+    "panels": {
+      "riskMap": "خريطة المخاطر السيادية",
+      "riskMapSub": "تصور تهديدات شبكة الموردين العالمية",
+      "regions": "مناطق",
+      "whatIf": "محاكي ماذا لو",
+      "whatIfSub": "غيّر متغيرات المخاطر لرؤية التأثير التالي",
+      "interactive": "تفاعلي",
+      "contingency": "خطط الطوارئ",
+      "contingencySub": "بروتوكولات استجابة آلية معتمدة مسبقاً"
+    },
+    "map": {
+      "threats": "تهديدات"
+    },
+    "whatIf": {
+      "impact": "التأثير التالي",
+      "revenue": "إجمالي الإيرادات",
+      "cost": "تكلفة سلسلة التوريد",
+      "delivery": "التسليم في الوقت",
+      "supplierScore": "نقاط المورد",
+      "riskExposure": "التعرض للمخاطر"
+    },
+    "contingency": {
+      "trigger": "المحفز",
+      "savings": "الوفورات المقدرة"
+    }
+  },
+  "complianceDocs": {
+    "chapter": "الفصل ٣.٣ — درع الامتثال",
+    "title": "ذكاء الامتثال والتدقيق",
+    "description": "كل تغيير في العقد، كل فحص امتثال، كل تحديث تنظيمي — مسجل بشكل غير قابل للتغيير وقابل للتدقيق فوراً.",
+    "kpi": {
+      "regulatoryChecks": "الفحوصات التنظيمية",
+      "esgScore": "نقاط ESG",
+      "auditEvents": "أحداث التدقيق",
+      "policyUpdates": "تحديثات السياسات"
+    },
+    "panels": {
+      "auditTrail": "سجل التدقيق غير القابل للتغيير",
+      "auditTrailSub": "تاريخ العقود مع طوابع زمنية وتحكم بالإصدارات",
+      "immutable": "غير قابل للتغيير",
+      "regulatory": "التحديثات التنظيمية",
+      "regulatorySub": "مراقبة قوانين التجارة السعودية والعالمية",
+      "esg": "فحص ESG",
+      "esgSub": "العناية الواجبة والمصادر الأخلاقية للموردين",
+      "ethical": "المصادر الأخلاقية"
+    },
+    "esg": {
+      "supplier": "المورد",
+      "carbon": "الكربون",
+      "humanRights": "حقوق الإنسان",
+      "ethicalSourcing": "المصادر الأخلاقية",
+      "overall": "الإجمالي",
+      "trend": "الاتجاه"
+    }
+  },
+  "placeholder": {
+    "title": "الوحدة قيد التطوير",
+    "description": "هذا الفصل من قصة سلسلة التوريد قيد الكتابة. السرد مستمر..."
+  }
+}

@@ -1,0 +1,347 @@
+{
+  "app": {
+    "name": "Supply Chain Resilience",
+    "subtitle": "AI-Powered Platform",
+    "loading": "Initializing Sovereign Intelligence..."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "marketResearch": "Market Research",
+    "supplierSelection": "Supplier Selection",
+    "orderManagement": "Order Management",
+    "receivingQA": "Receiving & QA",
+    "invoicePayment": "Invoice & Payment",
+    "supplierMgmt": "Supplier Management",
+    "inventoryMgmt": "Inventory Management",
+    "logisticsMgmt": "Logistics Management",
+    "contractMgmt": "Contract Management",
+    "riskDashboard": "Risk Dashboard",
+    "complianceDocs": "Compliance & Docs",
+    "integrationSettings": "Integration Settings",
+    "userProfile": "User Profile",
+    "sections": {
+      "sourceToPayChapter": "Chapter 1: Source to Pay",
+      "inventoryLogisticsChapter": "Chapter 2: Inventory & Logistics",
+      "contractGovernanceChapter": "Chapter 3: Contract & Governance",
+      "systemConfig": "System Configuration"
+    }
+  },
+  "header": {
+    "notifications": "Notifications",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your Supply Chain Command Center",
+    "email": "Email Address",
+    "password": "Password",
+    "signIn": "Sign In",
+    "forgotPassword": "Forgot Password?",
+    "emailPlaceholder": "name@company.com",
+    "passwordPlaceholder": "Enter your password"
+  },
+  "dashboard": {
+    "chapter": "Chapter 1 — The Intelligent Start",
+    "title": "Source to Pay Intelligence",
+    "description": "Your strategic command center for the entire Source-to-Pay lifecycle. AI-powered insights drive every decision from market discovery to payment execution.",
+    "kpi": {
+      "totalSuppliers": "Active Suppliers",
+      "marketRisk": "Market Risk Index",
+      "costSavings": "Cost Savings YTD",
+      "pendingOrders": "Pending Orders"
+    }
+  },
+  "marketResearch": {
+    "chapter": "Chapter 1.1 — Discovery",
+    "title": "AI-Driven Market Research",
+    "description": "The platform scans global markets, analyzes commodity trends, and discovers suppliers before you even know you need them.",
+    "kpi": {
+      "suppliersAnalyzed": "Suppliers Analyzed",
+      "marketsMonitored": "Markets Monitored",
+      "riskAlerts": "Risk Alerts",
+      "newDiscoveries": "New Discoveries"
+    },
+    "panels": {
+      "aiInsights": "AI Intelligence Feed",
+      "aiInsightsSub": "Real-time market signals",
+      "commodityTrends": "Commodity Price Trends",
+      "commodityTrendsSub": "12-month rolling analysis",
+      "riskMatrix": "Risk Assessment Matrix",
+      "riskMatrixSub": "Category × Region risk scoring",
+      "supplierDiscovery": "Global Supplier Discovery",
+      "supplierDiscoverySub": "AI-identified potential suppliers"
+    }
+  },
+  "supplierSelection": {
+    "chapter": "Chapter 1.2 — Selection",
+    "title": "AI-Powered Supplier Selection",
+    "description": "The AI evaluates, scores, and recommends suppliers based on cost optimization, reliability prediction, and ESG compliance.",
+    "kpi": {
+      "evaluated": "Suppliers Evaluated",
+      "shortlisted": "Shortlisted",
+      "avgScore": "Average Score",
+      "esgCompliant": "ESG Compliant"
+    },
+    "panels": {
+      "topRecommendations": "AI Recommendations",
+      "topRecommendationsSub": "Top-ranked suppliers by confidence",
+      "costAnalysis": "Cost Optimization Analysis",
+      "costAnalysisSub": "Total cost of ownership comparison",
+      "performanceRadar": "Performance Radar",
+      "performanceRadarSub": "Multi-dimensional scoring",
+      "esgScoring": "ESG & Sustainability",
+      "esgScoringSub": "Environmental, Social, Governance scoring"
+    }
+  },
+  "inventoryMgmt": {
+    "chapter": "Chapter 2.1 — The Pulse of Goods",
+    "title": "AI-Driven Inventory Intelligence",
+    "description": "The platform senses demand shifts and narrates a story of optimized stock levels. Real-time IoT signals and predictive analytics drive automated replenishment across your entire warehouse network.",
+    "kpi": {
+      "skusTracked": "SKUs Tracked",
+      "stockAccuracy": "Stock Accuracy",
+      "reorderRate": "Reorder Points",
+      "wasteReduction": "Waste Reduction"
+    },
+    "panels": {
+      "demandForecast": "AI Demand Forecasting",
+      "demandForecastSub": "12-month prediction vs actuals with confidence band",
+      "warehouseHeatmap": "Warehouse Capacity Heatmap",
+      "warehouseHeatmapSub": "Zone utilization across 3 facilities",
+      "iotFeed": "IoT Sensor Network",
+      "iotFeedSub": "Real-time environmental monitoring",
+      "slowMovers": "Slow-Moving & Obsolete Stock",
+      "slowMoversSub": "AI-driven waste reduction & disposition",
+      "sustainability": "Sustainability"
+    },
+    "table": {
+      "sku": "SKU",
+      "item": "Item",
+      "category": "Category",
+      "daysOnHand": "Days On Hand",
+      "value": "Value (SAR)",
+      "warehouse": "Warehouse",
+      "aiDisposition": "AI Disposition"
+    },
+    "chart": {
+      "actual": "Actual Demand",
+      "predicted": "AI Predicted",
+      "confidence": "Confidence Band"
+    },
+    "iot": {
+      "temp": "Temperature",
+      "humidity": "Humidity",
+      "rfidScans": "RFID Scans"
+    }
+  },
+  "logisticsMgmt": {
+    "chapter": "Chapter 2.2 — Movement & Delivery",
+    "title": "AI-Powered Logistics Orchestration",
+    "description": "The narrative of goods in motion. AI optimizes routes, predicts delays, and dynamically reroutes shipments to maintain the pulse of your supply chain.",
+    "kpi": {
+      "activeShipments": "Active Shipments",
+      "onTimeDelivery": "On-Time Delivery",
+      "avgTransitDays": "Avg Transit Days",
+      "carbonSaved": "Carbon Saved (t)"
+    },
+    "panels": {
+      "routeOptimization": "Route Cost Optimization",
+      "routeOptimizationSub": "AI-powered transportation cost analysis",
+      "savings": "Savings",
+      "contingency": "Contingency Intelligence",
+      "contingencySub": "Real-time bottleneck monitoring & rerouting",
+      "inbound": "Inbound Logistics Pipeline",
+      "inboundSub": "PO-linked shipment tracking from Source to Pay",
+      "shipments": "shipments",
+      "warehouseOps": "Warehouse Picking Operations",
+      "warehouseOpsSub": "Intelligent slotting & queue management"
+    },
+    "table": {
+      "poNumber": "PO Number",
+      "supplier": "Supplier",
+      "origin": "Origin",
+      "destination": "Destination",
+      "carrier": "Carrier",
+      "eta": "ETA",
+      "progress": "Progress",
+      "status": "Status"
+    },
+    "picking": {
+      "completed": "completed",
+      "inboundPOs": "Inbound POs"
+    }
+  },
+  "integrationSettings": {
+    "chapter": "System Configuration",
+    "title": "Integration Settings",
+    "description": "Manage real-time bi-directional sync with Tier-1 ERPs and payment gateways to maintain a Single Source of Truth.",
+    "erp": {
+      "title": "ERP Connectors",
+      "subtitle": "Enterprise Resource Planning integrations"
+    },
+    "payment": {
+      "title": "Payment Rails",
+      "subtitle": "Banking & payment gateway connections"
+    },
+    "physical": {
+      "title": "ERP Physical Sync",
+      "subtitle": "Goods Receipt & Stock Movement integrations"
+    },
+    "syncDirection": "Sync Direction",
+    "bidirectional": "Bidirectional",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "lastSync": "Last Sync",
+    "syncNow": "Sync Now",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "configure": "Configure"
+  },
+  "common": {
+    "viewAll": "View All",
+    "viewDetails": "View Details",
+    "export": "Export",
+    "filter": "Filter",
+    "search": "Search",
+    "save": "Save",
+    "cancel": "Cancel",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "region": "Region",
+    "category": "Category",
+    "score": "Score",
+    "status": "Status",
+    "quality": "Quality",
+    "cost": "Cost",
+    "delivery": "Delivery",
+    "reliability": "Reliability",
+    "sustainability": "Sustainability",
+    "comingSoon": "This module is being orchestrated. Coming soon."
+  },
+  "breadcrumb": {
+    "dashboard": "Chapter 1: Strategic Command",
+    "marketResearch": "Chapter 1.1: Discovery & Market Intelligence",
+    "supplierSelection": "Chapter 1.2: AI-Powered Selection",
+    "orderManagement": "Chapter 1.3: Order Orchestration",
+    "receivingQA": "Chapter 1.4: Receiving & Quality Assurance",
+    "invoicePayment": "Chapter 1.5: Invoice Reconciliation & Payment",
+    "supplierMgmt": "Chapter 1.6: Supplier Lifecycle Management",
+    "inventoryMgmt": "Chapter 2.1: Inventory Intelligence",
+    "logisticsMgmt": "Chapter 2.2: Logistics Orchestration",
+    "contractMgmt": "Chapter 3.1: Contract Intelligence",
+    "riskDashboard": "Chapter 3.2: Risk Command Center",
+    "complianceDocs": "Chapter 3.3: Compliance Shield",
+    "integrationSettings": "System: Integration Architecture",
+    "userProfile": "System: User Command Profile"
+  },
+  "contractMgmt": {
+    "chapter": "Chapter 3.1 — The Shield of Governance",
+    "title": "Contract Lifecycle Management",
+    "description": "AI-driven contract intelligence ensures every commitment is monitored, optimized, and protected. From negotiation to renewal, the platform guards your interests.",
+    "kpi": {
+      "activeContracts": "Active Contracts",
+      "avgCompliance": "Avg Compliance",
+      "expiring30d": "Expiring (30d)",
+      "aiSavings": "AI Negotiation Savings"
+    },
+    "panels": {
+      "registry": "Contract Registry",
+      "registrySub": "Active agreements across all suppliers",
+      "contracts": "contracts",
+      "performance": "Performance Evaluation",
+      "performanceSub": "Closed-loop: Phase Two delivery vs contract KPIs",
+      "closedLoop": "Closed Loop",
+      "scope": "AI Scope Monitor",
+      "scopeSub": "Dynamic scope-creep detection & optimization"
+    },
+    "table": {
+      "id": "Contract ID",
+      "supplier": "Supplier",
+      "type": "Type",
+      "value": "Value",
+      "period": "Period",
+      "compliance": "Compliance",
+      "status": "Status"
+    },
+    "perf": {
+      "contracted": "Contracted",
+      "actual": "Actual",
+      "quality": "Quality"
+    },
+    "scope": {
+      "creep": "Scope Creep",
+      "renewal": "Renewal"
+    }
+  },
+  "riskDashboard": {
+    "chapter": "Chapter 3.2 — Global Strategic Oversight",
+    "title": "Risk Intelligence & Scenario Simulation",
+    "description": "Zoom out to the strategic map. Predict disruptions, simulate scenarios, and deploy contingency plans before threats materialize.",
+    "kpi": {
+      "threatScore": "Threat Score",
+      "predictedRisks": "Predicted Risks",
+      "mitigated": "Mitigated",
+      "responseTime": "Avg Response Time"
+    },
+    "panels": {
+      "riskMap": "Sovereign Risk Map",
+      "riskMapSub": "Global supplier network threat visualization",
+      "regions": "regions",
+      "whatIf": "What-If Simulator",
+      "whatIfSub": "Toggle risk variables to see downstream impact",
+      "interactive": "Interactive",
+      "contingency": "Contingency Plans",
+      "contingencySub": "Pre-approved automated response protocols"
+    },
+    "map": {
+      "threats": "threats"
+    },
+    "whatIf": {
+      "impact": "Downstream Impact",
+      "revenue": "Total Revenue",
+      "cost": "Supply Chain Cost",
+      "delivery": "On-Time Delivery",
+      "supplierScore": "Supplier Score",
+      "riskExposure": "Risk Exposure"
+    },
+    "contingency": {
+      "trigger": "Trigger",
+      "savings": "Est. Savings"
+    }
+  },
+  "complianceDocs": {
+    "chapter": "Chapter 3.3 — The Compliance Shield",
+    "title": "Compliance & Audit Intelligence",
+    "description": "Every contract change, every compliance check, every regulatory update — immutably recorded and instantly auditable.",
+    "kpi": {
+      "regulatoryChecks": "Regulatory Checks",
+      "esgScore": "ESG Score",
+      "auditEvents": "Audit Events",
+      "policyUpdates": "Policy Updates"
+    },
+    "panels": {
+      "auditTrail": "Immutable Audit Trail",
+      "auditTrailSub": "Time-stamped, version-controlled contract history",
+      "immutable": "Immutable",
+      "regulatory": "Regulatory Updates",
+      "regulatorySub": "Saudi & Global trade law monitoring",
+      "esg": "ESG Screening",
+      "esgSub": "Supplier due-diligence & ethical sourcing",
+      "ethical": "Ethical Sourcing"
+    },
+    "esg": {
+      "supplier": "Supplier",
+      "carbon": "Carbon",
+      "humanRights": "Human Rights",
+      "ethicalSourcing": "Ethical Sourcing",
+      "overall": "Overall",
+      "trend": "Trend"
+    }
+  },
+  "placeholder": {
+    "title": "Module Under Development",
+    "description": "This chapter of the Supply Chain story is being written. The narrative continues..."
+  }
+}
