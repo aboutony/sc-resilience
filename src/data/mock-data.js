@@ -456,3 +456,117 @@ export const reportingData = {
     { severity: 'info', title: 'Savings Pipeline', titleAr: 'خط أنابيب الوفورات', detail: 'SAR 18.6M in identified savings across 3 strategic categories.', detailAr: '١٨.٦ مليون ر.س في وفورات محددة عبر ٣ فئات استراتيجية.' },
   ],
 };
+
+// ═══════════════════════════════════════════
+// Chapter 1.3 – Order Management Data
+// ═══════════════════════════════════════════
+
+export const orderData = {
+  purchaseOrders: [
+    { poNumber: 'PO-2026-0847', supplier: 'Al-Marai Industries', supplierAr: 'صناعات المراعي', value: 4250000, status: 'shipped', createdDate: '2026-02-28', items: 12, category: 'Raw Materials', approver: 'Fahad Al-Rashid' },
+    { poNumber: 'PO-2026-0831', supplier: 'Emirates Steel Corp', supplierAr: 'شركة الإمارات للصلب', value: 8400000, status: 'approved', createdDate: '2026-03-02', items: 8, category: 'Steel & Metals', approver: 'Nora Al-Dosari' },
+    { poNumber: 'PO-2026-0819', supplier: 'German Tech Solutions', supplierAr: 'حلول التقنية الألمانية', value: 15200000, status: 'pending', createdDate: '2026-03-05', items: 3, category: 'Equipment', approver: 'Awaiting Review' },
+    { poNumber: 'PO-2026-0802', supplier: 'Qatar Advanced Materials', supplierAr: 'قطر للمواد المتقدمة', value: 6700000, status: 'delivered', createdDate: '2026-02-20', items: 15, category: 'Raw Materials', approver: 'Fahad Al-Rashid' },
+    { poNumber: 'PO-2026-0798', supplier: 'Bahrain Precision Mfg', supplierAr: 'البحرين للتصنيع الدقيق', value: 3420000, status: 'approved', createdDate: '2026-03-07', items: 6, category: 'Components', approver: 'Saeed Al-Harthi' },
+    { poNumber: 'PO-2026-0785', supplier: 'Riyadh Polymers Ltd', supplierAr: 'بوليمرات الرياض', value: 2890000, status: 'shipped', createdDate: '2026-03-01', items: 10, category: 'Chemicals', approver: 'Nora Al-Dosari' },
+  ],
+  smartApproval: {
+    requisitionId: 'REQ-2026-0412',
+    title: 'High-Value Equipment Procurement',
+    titleAr: 'مشتريات معدات عالية القيمة',
+    totalValue: 15200000,
+    steps: [
+      { role: 'Requestor', roleAr: 'مقدم الطلب', name: 'Ahmed Al-Fahad', status: 'completed', timestamp: '2026-03-05 09:14', initials: 'AF' },
+      { role: 'Dept Head', roleAr: 'رئيس القسم', name: 'Saeed Al-Harthi', status: 'completed', timestamp: '2026-03-06 11:28', initials: 'SH' },
+      { role: 'Finance', roleAr: 'المالية', name: 'Nora Al-Dosari', status: 'current', timestamp: null, initials: 'ND' },
+      { role: 'CPO', roleAr: 'رئيس المشتريات', name: 'Fahad Al-Rashid', status: 'pending', timestamp: null, initials: 'FR' },
+    ],
+  },
+  kpis: {
+    activePOs: { value: 34, trend: 8, trendDir: 'up' },
+    awaitingApproval: { value: 7, trend: -12, trendDir: 'up' },
+    totalPOValue: { value: 40860000, trend: 14, trendDir: 'up' },
+    avgCycleTime: { value: '3.2d', trend: -18, trendDir: 'up' },
+  },
+};
+
+// ═══════════════════════════════════════════
+// Chapter 1.4 – Receiving & QA Data
+// ═══════════════════════════════════════════
+
+export const receivingData = {
+  qualityPassRate: 96.8,
+  inboundShipments: [
+    { poNumber: 'PO-2026-0847', supplier: 'Al-Marai Industries', supplierAr: 'صناعات المراعي', eta: '2026-03-15', items: 12, status: 'in-transit', carrier: 'Saudi Logistics' },
+    { poNumber: 'PO-2026-0831', supplier: 'Emirates Steel Corp', supplierAr: 'شركة الإمارات للصلب', eta: '2026-03-14', items: 8, status: 'at-port', carrier: 'Maersk Line' },
+    { poNumber: 'PO-2026-0819', supplier: 'German Tech Solutions', supplierAr: 'حلول التقنية الألمانية', eta: '2026-03-18', items: 3, status: 'in-transit', carrier: 'Hapag-Lloyd' },
+    { poNumber: 'PO-2026-0798', supplier: 'Bahrain Precision Mfg', supplierAr: 'البحرين للتصنيع الدقيق', eta: '2026-03-16', items: 6, status: 'customs', carrier: 'Gulf Shipping' },
+    { poNumber: 'PO-2026-0785', supplier: 'Riyadh Polymers Ltd', supplierAr: 'بوليمرات الرياض', eta: '2026-03-14', items: 10, status: 'arrived', carrier: 'Saudi Logistics' },
+    { poNumber: 'PO-2026-0802', supplier: 'Qatar Advanced Materials', supplierAr: 'قطر للمواد المتقدمة', eta: '2026-03-13', items: 15, status: 'received', carrier: 'GCC Express' },
+  ],
+  inspectionQueue: [
+    { id: 'INS-001', poNumber: 'PO-2026-0802', item: 'Polymer Resin Grade-A', itemAr: 'راتنج بوليمر درجة أ', lot: 'LOT-7842', qty: 2400, criteria: 'Purity ≥ 99.2%, Viscosity 340-360 cP', result: null },
+    { id: 'INS-002', poNumber: 'PO-2026-0785', item: 'Chemical Reagent Batch', itemAr: 'دفعة كواشف كيميائية', lot: 'LOT-3291', qty: 800, criteria: 'pH 6.8-7.2, Concentration 98%', result: null },
+    { id: 'INS-003', poNumber: 'PO-2026-0802', item: 'Industrial Lubricant', itemAr: 'زيوت صناعية', lot: 'LOT-9104', qty: 500, criteria: 'Flash Point > 220°C, Viscosity Index > 120', result: 'pass' },
+    { id: 'INS-004', poNumber: 'PO-2026-0785', item: 'Packaging Film Roll A', itemAr: 'لفة فيلم تغليف أ', lot: 'LOT-5567', qty: 1200, criteria: 'Thickness 25±2μm, Tensile > 30 MPa', result: 'fail' },
+  ],
+  kpis: {
+    shipmentsReceived: { value: 142, trend: 15, trendDir: 'up' },
+    qualityPassRate: { value: '96.8%', trend: 2.1, trendDir: 'up' },
+    pendingInspections: { value: 8, trend: -25, trendDir: 'up' },
+    rejectionRate: { value: '3.2%', trend: -8, trendDir: 'up' },
+  },
+};
+
+// ═══════════════════════════════════════════
+// Chapter 1.5 – Invoice & Payment Data
+// ═══════════════════════════════════════════
+
+export const invoiceData = {
+  threeWayMatch: {
+    poNumber: 'PO-2026-0847',
+    supplier: 'Al-Marai Industries',
+    poData: [
+      { item: 'Raw Material Alpha', qty: 500, unitPrice: 2400, total: 1200000, match: true },
+      { item: 'Raw Material Beta', qty: 300, unitPrice: 3200, total: 960000, match: true },
+      { item: 'Processing Agent C', qty: 200, unitPrice: 4100, total: 820000, match: false },
+    ],
+    receiptData: [
+      { item: 'Raw Material Alpha', qtyReceived: 500, qtyAccepted: 498, total: 1195200, match: true },
+      { item: 'Raw Material Beta', qtyReceived: 300, qtyAccepted: 300, total: 960000, match: true },
+      { item: 'Processing Agent C', qtyReceived: 200, qtyAccepted: 195, total: 799500, match: false },
+    ],
+    invoiceItems: [
+      { item: 'Raw Material Alpha', qty: 500, unitPrice: 2400, total: 1200000, match: true },
+      { item: 'Raw Material Beta', qty: 300, unitPrice: 3200, total: 960000, match: true },
+      { item: 'Processing Agent C', qty: 200, unitPrice: 4250, total: 850000, match: false },
+    ],
+  },
+  paymentQueue: [
+    { invoiceNo: 'INV-2026-1847', supplier: 'Al-Marai Industries', supplierAr: 'صناعات المراعي', amount: 3160000, dueDate: '2026-03-20', matchStatus: 'matched', bankSync: 'synced' },
+    { invoiceNo: 'INV-2026-1831', supplier: 'Emirates Steel Corp', supplierAr: 'شركة الإمارات للصلب', amount: 8400000, dueDate: '2026-03-22', matchStatus: 'matched', bankSync: 'pending' },
+    { invoiceNo: 'INV-2026-1819', supplier: 'German Tech Solutions', supplierAr: 'حلول التقنية الألمانية', amount: 15200000, dueDate: '2026-04-01', matchStatus: 'partial', bankSync: 'pending' },
+    { invoiceNo: 'INV-2026-1802', supplier: 'Qatar Advanced Materials', supplierAr: 'قطر للمواد المتقدمة', amount: 6700000, dueDate: '2026-03-18', matchStatus: 'matched', bankSync: 'synced' },
+    { invoiceNo: 'INV-2026-1798', supplier: 'Bahrain Precision Mfg', supplierAr: 'البحرين للتصنيع الدقيق', amount: 3420000, dueDate: '2026-03-25', matchStatus: 'discrepancy', bankSync: 'failed' },
+    { invoiceNo: 'INV-2026-1785', supplier: 'Riyadh Polymers Ltd', supplierAr: 'بوليمرات الرياض', amount: 2890000, dueDate: '2026-03-19', matchStatus: 'matched', bankSync: 'synced' },
+  ],
+  kpis: {
+    pendingInvoices: { value: 18, trend: -10, trendDir: 'up' },
+    matchedInvoices: { value: 124, trend: 22, trendDir: 'up' },
+    totalPayable: { value: 39770000, trend: 6, trendDir: 'down' },
+    discrepancies: { value: 3, trend: -40, trendDir: 'up' },
+  },
+};
+
+// ═══════════════════════════════════════════
+// Chapter 1.6 – Supplier Management Data
+// ═══════════════════════════════════════════
+
+export const supplierMgmtData = {
+  kpis: {
+    totalSuppliers: { value: 247, trend: 12, trendDir: 'up' },
+    activeContracts: { value: 84, trend: 8, trendDir: 'up' },
+    avgPerformance: { value: 88.4, trend: 3.2, trendDir: 'up' },
+    complianceRate: { value: '94.7%', trend: 2.8, trendDir: 'up' },
+  },
+};

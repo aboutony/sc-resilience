@@ -116,10 +116,10 @@ export function renderDashboardPage() {
         <div style="display:flex;flex-direction:column;gap:var(--space-md);">
           ${renderPipelineItem(i18n.t('nav.marketResearch'), 95, 'green')}
           ${renderPipelineItem(i18n.t('nav.supplierSelection'), 88, 'blue')}
-          ${renderPipelineItem(i18n.t('nav.orderManagement'), 45, 'orange')}
-          ${renderPipelineItem(i18n.t('nav.receivingQA'), 30, 'orange')}
-          ${renderPipelineItem(i18n.t('nav.invoicePayment'), 20, 'orange')}
-          ${renderPipelineItem(i18n.t('nav.supplierMgmt'), 35, 'orange')}
+          ${renderPipelineItem(i18n.t('nav.orderManagement'), 95, 'green')}
+          ${renderPipelineItem(i18n.t('nav.receivingQA'), 90, 'green')}
+          ${renderPipelineItem(i18n.t('nav.invoicePayment'), 88, 'green')}
+          ${renderPipelineItem(i18n.t('nav.supplierMgmt'), 92, 'green')}
         </div>
       </div>
     </div>

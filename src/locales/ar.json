@@ -278,8 +278,61 @@
     "panels": { "healthScore": "صحة سلسلة التوريد", "healthScoreSub": "مؤشر المرونة الإجمالي مع التفصيل", "keyFindings": "النتائج الرئيسية", "keyFindingsSub": "رؤى حاسمة من جميع المراحل الأربع", "nlpSummary": "الملخص التنفيذي", "nlpSummarySub": "سرد استراتيجي مولّد بالذكاء الاصطناعي", "aiGenerated": "مولّد بالذكاء الاصطناعي" },
     "health": { "procurement": "المشتريات", "logistics": "اللوجستيات", "governance": "الحوكمة", "analytics": "التحليلات" }
   },
+  "orderManagement": {
+    "chapter": "الفصل ١.٣ — تنسيق الطلبات",
+    "title": "إدارة أوامر الشراء",
+    "description": "كل طلب يصبح أمر شراء قابل للتتبع والتدقيق. يقوم الذكاء الاصطناعي بتنسيق الموافقات ومراقبة التنفيذ وفرض حوكمة الإنفاق.",
+    "kpi": { "activePOs": "أوامر الشراء النشطة", "awaitingApproval": "بانتظار الموافقة", "totalPOValue": "قيمة أوامر الشراء", "avgCycleTime": "متوسط وقت الدورة" },
+    "panels": {
+      "activePOs": "أوامر الشراء النشطة", "activePOsSub": "تتبع الطلبات في الوقت الفعلي مع الحالة",
+      "approvalWorkflow": "سير عمل الموافقة الذكي", "approvalWorkflowSub": "سلسلة موافقات متعددة المستويات للمشتريات عالية القيمة"
+    },
+    "table": { "poNumber": "رقم أمر الشراء", "supplier": "المورد", "value": "القيمة (ر.س)", "status": "الحالة", "date": "تاريخ الإنشاء", "items": "الأصناف", "category": "الفئة", "approver": "المعتمد" },
+    "status": { "pending": "قيد الانتظار", "approved": "معتمد", "shipped": "تم الشحن", "delivered": "تم التسليم" },
+    "approval": { "completed": "مكتمل", "current": "بانتظار المراجعة", "pending": "قيد الانتظار", "requisition": "طلب الشراء" }
+  },
+  "receivingQA": {
+    "chapter": "الفصل ١.٤ — الاستلام وضمان الجودة",
+    "title": "لوحة فحص البضائع",
+    "description": "كل شحنة تخضع لرقابة جودة صارمة بمساعدة الذكاء الاصطناعي. التحقق الرقمي يضمن دخول المواد المطابقة فقط إلى سلسلة التوريد.",
+    "kpi": { "shipmentsReceived": "الشحنات المستلمة", "qualityPassRate": "معدل اجتياز الجودة", "pendingInspections": "فحوصات معلقة", "rejectionRate": "معدل الرفض" },
+    "panels": {
+      "qualityGauge": "معدل اجتياز الجودة", "qualityGaugeSub": "معدل نجاح فحص البضائع الإجمالي",
+      "inbound": "الشحنات الواردة المتوقعة", "inboundSub": "الوصول المرتبط بأوامر الشراء مع تتبع الناقل",
+      "inspection": "قائمة التحقق الرقمي", "inspectionSub": "فحوصات الجودة بمساعدة الذكاء الاصطناعي مع أدوات الموافقة"
+    },
+    "table": { "poNumber": "رقم أمر الشراء", "supplier": "المورد", "eta": "الوصول المتوقع", "items": "الأصناف", "status": "الحالة", "carrier": "الناقل" },
+    "inspection": { "lot": "الدفعة", "qty": "الكمية", "criteria": "المعايير", "approve": "موافقة", "reject": "رفض", "passed": "ناجح", "failed": "مرفوض", "pending": "بانتظار المراجعة" },
+    "toast": { "approved": "تم اعتماد فحص الجودة", "rejected": "تم رفض فحص الجودة — تم التحويل للمراجعة" }
+  },
+  "invoicePayment": {
+    "chapter": "الفصل ١.٥ — تسوية الفواتير والدفع",
+    "title": "المطابقة الثلاثية والدفع",
+    "description": "تتلاقى بيانات أمر الشراء والاستلام والفاتورة للتسوية الآلية. كل ريال يتم التحقق منه قبل تنفيذ الدفع.",
+    "kpi": { "pendingInvoices": "فواتير معلقة", "matchedInvoices": "فواتير مطابقة", "totalPayable": "إجمالي المستحق", "discrepancies": "التناقضات" },
+    "panels": {
+      "threeWayMatch": "المطابقة الثلاثية", "threeWayMatchSub": "تسوية أمر الشراء مقابل الاستلام مقابل الفاتورة",
+      "paymentQueue": "قائمة الدفع", "paymentQueueSub": "المدفوعات المعتمدة مع حالة المزامنة البنكية",
+      "poData": "أمر الشراء", "receiptData": "إيصال الاستلام", "invoiceData": "فاتورة المورد"
+    },
+    "table": { "item": "الصنف", "qty": "الكمية", "unitPrice": "سعر الوحدة", "total": "الإجمالي", "invoiceNo": "رقم الفاتورة", "supplier": "المورد", "amount": "المبلغ (ر.س)", "dueDate": "تاريخ الاستحقاق", "matchStatus": "حالة المطابقة", "bankSync": "المزامنة البنكية" },
+    "match": { "matched": "مطابق", "partial": "جزئي", "discrepancy": "تناقض", "synced": "مزامَن", "pending": "قيد الانتظار", "failed": "فشل", "syncNow": "مزامنة" }
+  },
+  "supplierMgmt": {
+    "chapter": "الفصل ١.٦ — إدارة دورة حياة الموردين",
+    "title": "دليل دورة حياة الموردين",
+    "description": "رؤية ٣٦٠° لكل علاقة مع المورد. يتم تتبع درجات الأداء وحالة العقد والامتثال عبر دورة الحياة بالكامل.",
+    "kpi": { "totalSuppliers": "إجمالي الموردين", "activeContracts": "العقود النشطة", "avgPerformance": "متوسط الأداء", "complianceRate": "معدل الامتثال" },
+    "panels": {
+      "directory": "دليل الموردين", "directorySub": "الموردون النشطون مع الأداء وحالة العقد",
+      "scorecard": "بطاقة الأداء", "scorecardSub": "تقييم الأداء متعدد الأبعاد من مواصفات MTR"
+    },
+    "table": { "supplier": "المورد", "region": "المنطقة", "quality": "الجودة", "delivery": "التسليم", "reliability": "الموثوقية", "esg": "ESG", "contract": "العقد", "contractValue": "قيمة العقد", "overall": "الإجمالي" },
+    "contract": { "active": "نشط", "review": "قيد المراجعة", "expiring": "ينتهي قريباً", "none": "بدون عقد" }
+  },
   "placeholder": {
     "title": "الوحدة قيد التطوير",
     "description": "هذا الفصل من قصة سلسلة التوريد قيد الكتابة. السرد مستمر..."
   }
 }
+

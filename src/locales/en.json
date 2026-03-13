@@ -281,6 +281,58 @@
     "panels": { "healthScore": "Supply Chain Health", "healthScoreSub": "Overall resilience score with breakdown", "keyFindings": "Key Findings", "keyFindingsSub": "Critical insights from all 4 phases", "nlpSummary": "Executive Summary", "nlpSummarySub": "AI-generated strategic narrative", "aiGenerated": "AI Generated" },
     "health": { "procurement": "Procurement", "logistics": "Logistics", "governance": "Governance", "analytics": "Analytics" }
   },
+  "orderManagement": {
+    "chapter": "Chapter 1.3 \u2014 Order Orchestration",
+    "title": "Purchase Order Management",
+    "description": "Every requisition becomes a trackable, auditable purchase order. The AI orchestrates approvals, monitors fulfillment, and enforces spending governance.",
+    "kpi": { "activePOs": "Active POs", "awaitingApproval": "Awaiting Approval", "totalPOValue": "Total PO Value", "avgCycleTime": "Avg Cycle Time" },
+    "panels": {
+      "activePOs": "Active Purchase Orders", "activePOsSub": "Real-time order tracking with status",
+      "approvalWorkflow": "Smart Approval Workflow", "approvalWorkflowSub": "Multi-tier approval chain for high-value requisitions"
+    },
+    "table": { "poNumber": "PO Number", "supplier": "Supplier", "value": "Value (SAR)", "status": "Status", "date": "Created", "items": "Items", "category": "Category", "approver": "Approver" },
+    "status": { "pending": "Pending", "approved": "Approved", "shipped": "Shipped", "delivered": "Delivered" },
+    "approval": { "completed": "Completed", "current": "Awaiting Review", "pending": "Pending", "requisition": "Requisition" }
+  },
+  "receivingQA": {
+    "chapter": "Chapter 1.4 \u2014 Receiving & Quality Assurance",
+    "title": "Goods Inspection Dashboard",
+    "description": "Every shipment undergoes rigorous AI-assisted quality control. Digital verification ensures only conforming materials enter the supply chain.",
+    "kpi": { "shipmentsReceived": "Shipments Received", "qualityPassRate": "Quality Pass Rate", "pendingInspections": "Pending Inspections", "rejectionRate": "Rejection Rate" },
+    "panels": {
+      "qualityGauge": "Quality Pass Rate", "qualityGaugeSub": "Overall goods inspection success rate",
+      "inbound": "Expected Inbound Shipments", "inboundSub": "PO-linked arrivals with carrier tracking",
+      "inspection": "Digital Verification Queue", "inspectionSub": "AI-assisted quality checks with approval controls"
+    },
+    "table": { "poNumber": "PO Number", "supplier": "Supplier", "eta": "ETA", "items": "Items", "status": "Status", "carrier": "Carrier" },
+    "inspection": { "lot": "Lot", "qty": "Quantity", "criteria": "Criteria", "approve": "Approve", "reject": "Reject", "passed": "Passed", "failed": "Failed", "pending": "Pending Review" },
+    "toast": { "approved": "Quality check APPROVED", "rejected": "Quality check REJECTED — flagged for review" }
+  },
+  "invoicePayment": {
+    "chapter": "Chapter 1.5 \u2014 Invoice Reconciliation & Payment",
+    "title": "Three-Way Matching & Payment",
+    "description": "PO, Receipt, and Invoice data converge for automated reconciliation. Every riyal is verified before payment execution.",
+    "kpi": { "pendingInvoices": "Pending Invoices", "matchedInvoices": "Matched Invoices", "totalPayable": "Total Payable", "discrepancies": "Discrepancies" },
+    "panels": {
+      "threeWayMatch": "Three-Way Matching", "threeWayMatchSub": "PO vs Receipt vs Invoice reconciliation",
+      "paymentQueue": "Payment Queue", "paymentQueueSub": "Authorized payments with banking sync status",
+      "poData": "Purchase Order", "receiptData": "Goods Receipt", "invoiceData": "Supplier Invoice"
+    },
+    "table": { "item": "Item", "qty": "Qty", "unitPrice": "Unit Price", "total": "Total", "invoiceNo": "Invoice #", "supplier": "Supplier", "amount": "Amount (SAR)", "dueDate": "Due Date", "matchStatus": "Match Status", "bankSync": "Bank Sync" },
+    "match": { "matched": "Matched", "partial": "Partial", "discrepancy": "Discrepancy", "synced": "Synced", "pending": "Pending", "failed": "Failed", "syncNow": "Sync" }
+  },
+  "supplierMgmt": {
+    "chapter": "Chapter 1.6 \u2014 Supplier Lifecycle Management",
+    "title": "Supplier Lifecycle Directory",
+    "description": "A 360° view of every supplier relationship. Performance scores, contract status, and compliance are tracked across the entire lifecycle.",
+    "kpi": { "totalSuppliers": "Total Suppliers", "activeContracts": "Active Contracts", "avgPerformance": "Avg Performance", "complianceRate": "Compliance Rate" },
+    "panels": {
+      "directory": "Supplier Directory", "directorySub": "Active suppliers with performance and contract status",
+      "scorecard": "Performance Scorecard", "scorecardSub": "Multi-dimensional performance evaluation from MTR specs"
+    },
+    "table": { "supplier": "Supplier", "region": "Region", "quality": "Quality", "delivery": "Delivery", "reliability": "Reliability", "esg": "ESG", "contract": "Contract", "contractValue": "Contract Value", "overall": "Overall" },
+    "contract": { "active": "Active", "review": "Under Review", "expiring": "Expiring", "none": "No Contract" }
+  },
   "placeholder": {
     "title": "Module Under Development",
     "description": "This chapter of the Supply Chain story is being written. The narrative continues..."

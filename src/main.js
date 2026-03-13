@@ -12,9 +12,12 @@ import { renderLoginPage } from './pages/login.js';
 import { renderDashboardPage } from './pages/dashboard.js';
 import { renderMarketResearchPage } from './pages/market-research.js';
 import { renderSupplierSelectionPage } from './pages/supplier-selection.js';
+import { renderOrderManagementPage } from './pages/order-management.js';
+import { renderReceivingQAPage } from './pages/receiving-qa.js';
+import { renderInvoicePaymentPage } from './pages/invoice-payment.js';
+import { renderSupplierMgmtPage } from './pages/supplier-mgmt.js';
 import { renderIntegrationSettingsPage } from './pages/integration-settings.js';
 import { renderUserProfilePage } from './pages/user-profile.js';
-import { renderPlaceholderPage } from './pages/placeholder.js';
 import { renderInventoryManagementPage } from './pages/inventory-management.js';
 import { renderLogisticsManagementPage } from './pages/logistics-management.js';
 import { renderContractManagementPage } from './pages/contract-management.js';
@@ -132,13 +135,13 @@ function getPageContent(route) {
     case 'supplier-selection':
       return renderSupplierSelectionPage();
     case 'order-management':
-      return renderPlaceholderPage('nav.orderManagement', 'placeholder.description');
+      return renderOrderManagementPage();
     case 'receiving-qa':
-      return renderPlaceholderPage('nav.receivingQA', 'placeholder.description');
+      return renderReceivingQAPage();
     case 'invoice-payment':
-      return renderPlaceholderPage('nav.invoicePayment', 'placeholder.description');
+      return renderInvoicePaymentPage();
     case 'supplier-mgmt':
-      return renderPlaceholderPage('nav.supplierMgmt', 'placeholder.description');
+      return renderSupplierMgmtPage();
     case 'inventory-management':
       return renderInventoryManagementPage();
     case 'logistics-management':
@@ -162,7 +165,7 @@ function getPageContent(route) {
     case 'user-profile':
       return renderUserProfilePage();
     default:
-      return renderPlaceholderPage('placeholder.title', 'placeholder.description');
+      return renderDashboardPage();
   }
 }
 
