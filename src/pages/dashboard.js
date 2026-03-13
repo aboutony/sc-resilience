@@ -10,8 +10,8 @@ export function renderDashboardPage() {
                     <span style="color: #1e293b; font-size: 1.2rem;">/</span>
                     <span style="color: #f8fafc; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em;">Chapter 1: Strategic Command</span>
                 </div>
-                <div class="status-badge" style="display: flex; align-items: center; gap: 1rem; background: rgba(16, 185, 129, 0.05); padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.2);">
-                    <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; shadow: 0 0 12px #10b981;"></div>
+                <div style="display: flex; align-items: center; gap: 1rem; background: rgba(16, 185, 129, 0.05); padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 12px #10b981;"></div>
                     <span style="font-size: 9px; font-weight: 900; color: #10b981; text-transform: uppercase;">System Integrity: Optimal</span>
                 </div>
             </div>
@@ -23,44 +23,45 @@ export function renderDashboardPage() {
                 </div>
 
                 <div class="grid-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 5rem;">
-                    <div class="card-panel">
-                        <p class="text-xs uppercase tracking-widest text-slate-500">Total Procurement Value</p>
-                        <h2 class="text-2xl font-mono font-bold mt-2">SAR 42,850,000.00</h2>
+                    <div class="card-panel" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); padding: 2rem; border-radius: 0.5rem;">
+                        <p style="color: #475569; font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem;">Total Procurement Value</p>
+                        <h2 style="font-family: monospace; font-size: 1.4rem; font-weight: 700;">SAR 42,850,000.00</h2>
                     </div>
-                    <div class="card-panel">
-                        <p class="text-xs uppercase tracking-widest text-slate-500">Supply Resilience Index</p>
-                        <h2 class="text-2xl font-mono font-bold mt-2 text-green-500">94.2%</h2>
+                    <div class="card-panel" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); padding: 2rem; border-radius: 0.5rem;">
+                        <p style="color: #475569; font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem;">Supply Resilience Index</p>
+                        <h2 style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: #10b981;">94.2%</h2>
                     </div>
-                    <div class="card-panel">
-                        <p class="text-xs uppercase tracking-widest text-slate-500">Local Content Score</p>
-                        <h2 class="text-2xl font-mono font-bold mt-2 text-blue-500">88.5%</h2>
+                    <div class="card-panel" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); padding: 2rem; border-radius: 0.5rem;">
+                        <p style="color: #475569; font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem;">Local Content Score</p>
+                        <h2 style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: #3b82f6;">88.5%</h2>
                     </div>
-                    <div class="card-panel">
-                        <p class="text-xs uppercase tracking-widest text-slate-500">Active ERP Syncs</p>
-                        <h2 class="text-2xl font-mono font-bold mt-2 text-indigo-500">03 / 03</h2>
+                    <div class="card-panel" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); padding: 2rem; border-radius: 0.5rem;">
+                        <p style="color: #475569; font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem;">Active ERP Syncs</p>
+                        <h2 style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: #6366f1;">03 / 03</h2>
                     </div>
                 </div>
 
                 <h2 style="font-size: 0.7rem; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5em; font-weight: 900; margin-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 1.25rem;">Mission Modules</h2>
-                
-                <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
-                    <div class="card-panel pointer" onclick="location.hash='#/warehouse-grid'" style="padding: 3rem; background: rgba(255,255,255,0.01); border: 1px solid rgba(59, 130, 246, 0.15); border-radius: 0.75rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                             <div style="color: #3b82f6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-                             <span class="badge badge--blue">Operational</span>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 2rem;">
+                    
+                    <div class="card-panel pointer" onclick="location.hash='#/warehouse-grid'" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(59, 130, 246, 0.15); padding: 3rem; border-radius: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                            <div style="color: #3b82f6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                            <span style="font-size: 9px; color: #3b82f6; font-weight: 900; text-transform: uppercase; padding: 6px 12px; border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 2px;">Operational</span>
                         </div>
-                        <h3 class="text-xl font-bold">Operational Pulse</h3>
-                        <p class="text-slate-500 mt-2">Zone utilization & Made-in-KSA tracking.</p>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Operational Pulse</h3>
+                        <p style="color: #64748b; font-size: 0.95rem; line-height: 1.8; margin: 0;">Master-grid for localized zone utilization and Made-in-KSA asset tracking.</p>
                     </div>
 
-                    <div class="card-panel pointer" onclick="location.hash='#/stock-velocity'" style="padding: 3rem; background: rgba(255,255,255,0.01); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 0.75rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                             <div style="color: #ef4444;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-                             <span class="badge badge--red">Real-Time</span>
+                    <div class="card-panel pointer" onclick="location.hash='#/stock-velocity'" style="background: rgba(255,255,255,0.01); border: 1px solid rgba(239, 68, 68, 0.15); padding: 3rem; border-radius: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                            <div style="color: #ef4444;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                            <span style="font-size: 9px; color: #ef4444; font-weight: 900; text-transform: uppercase; padding: 6px 12px; border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 2px;">Real-Time</span>
                         </div>
-                        <h3 class="text-xl font-bold">Velocity Analytics</h3>
-                        <p class="text-slate-500 mt-2">Predictive friction & throughput monitoring.</p>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Velocity Analytics</h3>
+                        <p style="color: #64748b; font-size: 0.95rem; line-height: 1.8; margin: 0;">Predictive friction detection and throughput stagnation monitoring.</p>
                     </div>
+
                 </div>
             </div>
         </div>
