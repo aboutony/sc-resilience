@@ -1,7 +1,7 @@
 // ═══════════════════════════════════════════════════════
 // Main.js – Application Bootstrap
 // AI-Powered Supply Chain Resilience Platform
-// ─── STABILITY LOCKDOWN BUILD ───
+// ─── IRONCLAD STABILITY BUILD ───
 // ═══════════════════════════════════════════════════════
 
 import { themeEngine } from './theme.js';
@@ -9,6 +9,7 @@ import { i18n } from './i18n.js';
 import { router } from './router.js';
 import { renderSidebar, updateSidebarActive, updateSidebarLabels } from './components/sidebar.js';
 import { renderHeader, updateBreadcrumb } from './components/header.js';
+import { withErrorBoundary } from './components/error-boundary.js';
 
 // ─── Only login is static (first screen) ───
 import { renderLoginPage } from './pages/login.js';
@@ -45,7 +46,7 @@ let _navCount = 0; // Stability counter
 const PAGE_LOADER = {
   'dashboard':            () => import('./pages/dashboard.js').then(m => m.renderDashboardPage()),
   'market-research':      () => import('./pages/market-research.js').then(m => m.renderMarketResearchPage()),
-  'supplier-selection':   () => import('./pages/supplier-selection.js').then(m => m.renderSupplierSelectionPage()),
+  'supplier-selection':   () => import('./pages/supplier-selection.js').then(m => withErrorBoundary(() => m.renderSupplierSelectionPage(), 'Supplier Selection (Ch 1.2)')),
   'order-management':     () => import('./pages/order-management.js').then(m => m.renderOrderManagementPage()),
   'receiving-qa':         () => import('./pages/receiving-qa.js').then(m => m.renderReceivingQAPage()),
   'invoice-payment':      () => import('./pages/invoice-payment.js').then(m => m.renderInvoicePaymentPage()),
@@ -53,11 +54,11 @@ const PAGE_LOADER = {
   'inventory-management': () => import('./pages/inventory-management.js').then(m => m.renderInventoryManagementPage()),
   'logistics-management': () => import('./pages/logistics-management.js').then(m => m.renderLogisticsManagementPage()),
   'contract-management':  () => import('./pages/contract-management.js').then(m => m.renderContractManagementPage()),
-  'risk-dashboard':       () => import('./pages/risk-dashboard.js').then(m => m.renderRiskDashboardPage()),
+  'risk-dashboard':       () => import('./pages/risk-dashboard.js').then(m => withErrorBoundary(() => m.renderRiskDashboardPage(), 'Risk Dashboard (Ch 3.2)')),
   'compliance-docs':      () => import('./pages/compliance-docs.js').then(m => m.renderComplianceDocsPage()),
   'demand-planning':      () => import('./pages/demand-planning.js').then(m => m.renderDemandPlanningPage()),
   'cost-engineering':     () => import('./pages/cost-engineering.js').then(m => m.renderCostEngineeringPage()),
-  'spend-analysis':       () => import('./pages/spend-analysis.js').then(m => m.renderSpendAnalysisPage()),
+  'spend-analysis':       () => import('./pages/spend-analysis.js').then(m => withErrorBoundary(() => m.renderSpendAnalysisPage(), 'Spend Analysis (Ch 4.3)')),
   'intelligent-reporting': () => import('./pages/intelligent-reporting.js').then(m => m.renderIntelligentReportingPage()),
   'integration-settings': () => import('./pages/integration-settings.js').then(m => m.renderIntegrationSettingsPage()),
   'user-profile':         () => import('./pages/user-profile.js').then(m => m.renderUserProfilePage()),
@@ -69,7 +70,7 @@ const PAGE_LOADER = {
 const STATIC_PAGE_LOADER = {
   'dashboard':            () => renderDashboardPage(),
   'market-research':      () => renderMarketResearchPage(),
-  'supplier-selection':   () => renderSupplierSelectionPage(),
+  'supplier-selection':   () => withErrorBoundary(() => renderSupplierSelectionPage(), 'Supplier Selection (Ch 1.2)'),
   'order-management':     () => renderOrderManagementPage(),
   'receiving-qa':         () => renderReceivingQAPage(),
   'invoice-payment':      () => renderInvoicePaymentPage(),
@@ -77,11 +78,11 @@ const STATIC_PAGE_LOADER = {
   'inventory-management': () => renderInventoryManagementPage(),
   'logistics-management': () => renderLogisticsManagementPage(),
   'contract-management':  () => renderContractManagementPage(),
-  'risk-dashboard':       () => renderRiskDashboardPage(),
+  'risk-dashboard':       () => withErrorBoundary(() => renderRiskDashboardPage(), 'Risk Dashboard (Ch 3.2)'),
   'compliance-docs':      () => renderComplianceDocsPage(),
   'demand-planning':      () => renderDemandPlanningPage(),
   'cost-engineering':     () => renderCostEngineeringPage(),
-  'spend-analysis':       () => renderSpendAnalysisPage(),
+  'spend-analysis':       () => withErrorBoundary(() => renderSpendAnalysisPage(), 'Spend Analysis (Ch 4.3)'),
   'intelligent-reporting': () => renderIntelligentReportingPage(),
   'integration-settings': () => renderIntegrationSettingsPage(),
   'user-profile':         () => renderUserProfilePage(),
