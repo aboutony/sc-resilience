@@ -2,104 +2,110 @@ import { Registry } from '../infra/Registry.js';
 
 export function renderDashboardPage() {
     const content = `
-        <div class="dashboard-wrapper" style="background: #0d1117; min-height: 100vh; color: #ffffff; font-family: 'Inter', sans-serif; padding: 2.5rem;">
-            
-            <div style="margin-bottom: 3rem;">
-                <p style="color: #64748b; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem;">Chapter 1 — The Intelligent Start</p>
-                <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em;">Source to Pay Intelligence</h1>
-                <p style="color: #475569; font-size: 0.9rem; margin-top: 0.5rem; max-width: 600px;">Your strategic command center for the entire Source-to-Pay lifecycle. AI-powered insights drive every decision from market discovery to payment execution.</p>
+        <div style="background: #0d1117; min-height: 100vh; color: #ffffff; font-family: 'Inter', sans-serif; padding: 2rem;">
+            <div style="margin-bottom: 3rem; border-left: 4px solid #10b981; padding-left: 1.5rem;">
+                <p style="color: #64748b; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 0.5rem;">Chapter 1 &mdash; The Intelligent Start</p>
+                <h1 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em;">Source to Pay Intelligence</h1>
+                <p style="color: #475569; font-size: 1rem; margin-top: 0.5rem; max-width: 800px; line-height: 1.6;">AI-powered strategic command center driving market discovery and payment execution.</p>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
-                <div class="card-panel" style="background: #161b22; border: 1px solid #30363d; padding: 1.5rem; border-radius: 0.75rem;">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #8b949e; font-size: 0.75rem; font-weight: 600;">247</span>
-                        <span style="color: #238636; font-size: 0.7rem;">? 12%</span>
+                ${[
+                    { label: 'Active Suppliers', val: '247', change: '+12%', color: '#ffffff' },
+                    { label: 'Market Risk Index', val: 'Low', change: '-3%', color: '#10b981' },
+                    { label: 'Cost Savings YTD', val: 'SAR 4.3M', change: '+18.5%', color: '#ffffff' },
+                    { label: 'Pending Orders', val: '34', change: '+5%', color: '#f85149' }
+                ].map(kpi => `
+                    <div style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <span style="color: #64748b; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">\${kpi.label}</span>
+                            <span style="color: #10b981; font-size: 0.7rem; font-weight: bold;">\${kpi.change}</span>
+                        </div>
+                        <h2 style="font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 1.8rem; font-weight: 800; color: \${kpi.color};">\${kpi.val}</h2>
+                        <div style="margin-top: 1rem;"><a href="#" style="color: #3b82f6; font-size: 0.6rem; text-decoration: none; font-weight: bold; letter-spacing: 0.1em;">SHOW LOGIC</a></div>
                     </div>
-                    <p style="color: #8b949e; font-size: 0.7rem; margin: 0.5rem 0;">Active Suppliers</p>
-                    <a href="#" style="color: #58a6ff; font-size: 0.65rem; text-decoration: none;">SHOW LOGIC</a>
-                </div>
-                <div class="card-panel" style="background: #161b22; border: 1px solid #30363d; padding: 1.5rem; border-radius: 0.75rem;">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #ffffff; font-weight: 700;">Low</span>
-                        <span style="color: #238636; font-size: 0.7rem;">? 3%</span>
-                    </div>
-                    <p style="color: #8b949e; font-size: 0.7rem; margin: 0.5rem 0;">Market Risk Index</p>
-                    <a href="#" style="color: #58a6ff; font-size: 0.65rem; text-decoration: none;">SHOW LOGIC</a>
-                </div>
-                <div class="card-panel" style="background: #161b22; border: 1px solid #30363d; padding: 1.5rem; border-radius: 0.75rem;">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #ffffff; font-weight: 700; font-family: monospace;">SAR 4.3M</span>
-                        <span style="color: #238636; font-size: 0.7rem;">? 18.5%</span>
-                    </div>
-                    <p style="color: #8b949e; font-size: 0.7rem; margin: 0.5rem 0;">Cost Savings YTD</p>
-                    <a href="#" style="color: #58a6ff; font-size: 0.65rem; text-decoration: none;">SHOW LOGIC</a>
-                </div>
-                <div class="card-panel" style="background: #161b22; border: 1px solid #30363d; padding: 1.5rem; border-radius: 0.75rem;">
-                    <div style="display:flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #ffffff; font-weight: 700;">34</span>
-                        <span style="color: #da3633; font-size: 0.7rem;">+ 5%</span>
-                    </div>
-                    <p style="color: #8b949e; font-size: 0.7rem; margin: 0.5rem 0;">Pending Orders</p>
-                    <a href="#" style="color: #58a6ff; font-size: 0.65rem; text-decoration: none;">SHOW LOGIC</a>
-                </div>
+                `).join('')}
             </div>
 
-            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; margin-bottom: 3rem;">
-                <div style="background: #161b22; border: 1px solid #30363d; border-radius: 1rem; padding: 2rem;">
-                    <h3 style="font-size: 0.9rem; margin-bottom: 2rem; color: #f0f6fc;">Source to Pay Pipeline</h3>
-                    ${['Market Research', 'Supplier Selection', 'Order Management', 'Receiving & QA', 'Invoice & Payment', 'Supplier Management'].map(step => `
-                        <div style="margin-bottom: 1.5rem;">
-                            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.5rem;">
-                                <span>${step}</span>
-                                <span style="font-weight: bold;">${Math.floor(Math.random() * 20) + 80}%</span>
+            <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+                <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.25rem; padding: 2.5rem;">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 2.5rem; color: #f0f6fc; text-transform: uppercase; letter-spacing: 0.1em;">Source to Pay Pipeline</h3>
+                    ${[
+                        { step: 'Market Research', pct: 95 },
+                        { step: 'Supplier Selection', pct: 88 },
+                        { step: 'Order Management', pct: 92 },
+                        { step: 'Receiving & QA', pct: 90 },
+                        { step: 'Invoice & Payment', pct: 87 },
+                        { step: 'Supplier Management', pct: 93 }
+                    ].map(s => `
+                        <div style="margin-bottom: 1.8rem;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.6rem;">
+                                <span style="font-weight: 500;">\${s.step}</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-weight: bold; color: #10b981;">\${s.pct}%</span>
                             </div>
-                            <div style="background: #30363d; height: 6px; border-radius: 3px; overflow: hidden;">
-                                <div style="background: #238636; width: ${Math.floor(Math.random() * 20) + 80}%; height: 100%;"></div>
+                            <div style="background: #1e293b; height: 4px; border-radius: 2px;">
+                                <div style="background: #10b981; width: \${s.pct}%; height: 100%; border-radius: 2px; box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);"></div>
                             </div>
                         </div>
                     `).join('')}
                 </div>
 
-                <div style="background: #161b22; border: 1px solid #30363d; border-radius: 1rem; padding: 2rem;">
-                    <h3 style="font-size: 0.9rem; margin-bottom: 2rem; color: #f0f6fc;">Urgent Action Feed</h3>
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
-                        <div style="padding: 1rem; background: rgba(218, 54, 51, 0.1); border-left: 4px solid #da3633; border-radius: 4px;">
-                            <p style="font-size: 0.75rem; margin: 0; color: #f85149; font-weight: bold;">PRQ-2026-0412 Pending CPO Approval</p>
-                            <p style="font-size: 0.65rem; margin: 4px 0 0; color: #8b949e;">SAR 1.2M equipment procurement — Finance approved.</p>
+                <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.25rem; padding: 2.5rem;">
+                    <h3 style="font-size: 0.9rem; margin-bottom: 2.5rem; color: #f0f6fc; text-transform: uppercase; letter-spacing: 0.1em;">Urgent Action Feed</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div style="padding: 1.25rem; background: rgba(248, 81, 73, 0.05); border: 1px solid rgba(248, 81, 73, 0.15); border-left: 4px solid #f85149; border-radius: 8px;">
+                            <p style="font-size: 0.85rem; font-weight: bold; color: #f85149; margin-bottom: 0.4rem;">PRQ-2026-0412 Pending CPO Approval</p>
+                            <p style="font-size: 0.75rem; color: #64748b;">SAR 1.2M equipment procurement &mdash; Finance approved, awaiting final sign-off.</p>
                         </div>
-                        <div style="padding: 1rem; background: rgba(56, 139, 253, 0.1); border-left: 4px solid #388bfd; border-radius: 4px;">
-                            <p style="font-size: 0.75rem; margin: 0; color: #58a6ff; font-weight: bold;">Jeddah Port Delay — 3 POs Affected</p>
-                            <p style="font-size: 0.65rem; margin: 4px 0 0; color: #8b949e;">Maersk Line 42h delay impacts PO-0331, PO-0319.</p>
+                        <div style="padding: 1.25rem; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.15); border-left: 4px solid #3b82f6; border-radius: 8px;">
+                            <p style="font-size: 0.85rem; font-weight: bold; color: #3b82f6; margin-bottom: 0.4rem;">Jeddah Port Delay &mdash; 3 POs Affected</p>
+                            <p style="font-size: 0.75rem; color: #64748b;">Maersk Line 42h delay impacts PO-0331, PO-0319.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div style="background: #161b22; border: 1px solid #30363d; border-radius: 1rem; padding: 2rem; margin-bottom: 3rem;">
-                <h3 style="font-size: 0.9rem; margin-bottom: 1.5rem;">Local Content / Saudi Vision 2030</h3>
-                <div style="background: rgba(35, 134, 54, 0.05); border: 1px solid #238636; padding: 1.5rem; border-radius: 0.75rem; display: flex; align-items: center; gap: 2rem;">
-                    <div style="background: #0d1117; padding: 1rem; border-radius: 0.5rem; border: 1px solid #30363d;">
-                        <p style="font-size: 0.7rem; color: #8b949e; margin: 0;">Al-Marai Industries</p>
-                        <p style="font-size: 0.6rem; color: #238636; margin: 4px 0;">Vision 2030 Certified</p>
+            <div style="background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, rgba(13, 17, 23, 0) 100%); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 1.25rem; padding: 2.5rem; margin-bottom: 3rem;">
+                <h3 style="font-size: 0.9rem; margin-bottom: 2rem; color: #10b981; text-transform: uppercase; letter-spacing: 0.15em;">Local Content / Saudi Vision 2030</h3>
+                <div style="display: flex; align-items: center; gap: 3rem;">
+                    <div style="background: #1e293b; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); min-width: 200px;">
+                        <p style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.5rem;">Al-Marai Industries</p>
+                        <span style="font-size: 0.65rem; color: #10b981; font-weight: 800; text-transform: uppercase;">Vision 2030 Certified</span>
                     </div>
-                    <div style="display: flex; gap: 2rem; font-family: monospace;">
-                        <div><p style="font-size: 0.6rem; color: #8b949e; margin: 0;">KSA SCORE</p><p style="font-size: 1.2rem; font-weight: bold; margin: 0;">72</p></div>
-                        <div><p style="font-size: 0.6rem; color: #8b949e; margin: 0;">SDRPY SCORE</p><p style="font-size: 1.2rem; font-weight: bold; margin: 0;">85</p></div>
-                        <div><p style="font-size: 0.6rem; color: #8b949e; margin: 0;">LOCAL CONTENT</p><p style="font-size: 1.2rem; font-weight: bold; margin: 0;">48%</p></div>
+                    <div style="display: flex; gap: 4rem;">
+                        <div><p style="color:#64748b; font-size:0.7rem; font-weight:800; margin-bottom:0.5rem;">KSA SCORE</p><p style="font-family:'JetBrains Mono', monospace; font-size:1.8rem; font-weight:800;">72</p></div>
+                        <div><p style="color:#64748b; font-size:0.7rem; font-weight:800; margin-bottom:0.5rem;">SDRPY SCORE</p><p style="font-family:'JetBrains Mono', monospace; font-size:1.8rem; font-weight:800;">85</p></div>
+                        <div><p style="color:#64748b; font-size:0.7rem; font-weight:800; margin-bottom:0.5rem;">LOCAL CONTENT</p><p style="font-family:'JetBrains Mono', monospace; font-size:1.8rem; font-weight:800; color:#10b981;">48%</p></div>
                     </div>
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
-                <div class="card-panel pointer" onclick="location.hash='#/warehouse-grid'" style="background: #161b22; border: 1px solid #30363d; padding: 2rem; border-radius: 1rem;">
-                    <h4 style="color: #388bfd; font-size: 1rem; margin-bottom: 0.5rem;">Operational Pulse</h4>
-                    <p style="color: #8b949e; font-size: 0.75rem;">Manage localized zones and KSA asset utilization metrics.</p>
+            <h2 style="font-size: 0.75rem; color: #334155; text-transform: uppercase; letter-spacing: 0.4em; font-weight: 900; margin-bottom: 2rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem;">Mission Modules</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+
+                <div style="background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(59, 130, 246, 0.2); padding: 2.5rem; border-radius: 1.5rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);" onmouseover="this.style.borderColor='rgba(59, 130, 246, 0.5)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(59,130,246,0.15)'" onmouseout="this.style.borderColor='rgba(59, 130, 246, 0.2)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'" onclick="location.hash='#/warehouse-grid'">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                        <div style="width: 56px; height: 56px; background: rgba(59, 130, 246, 0.1); color: #3b82f6; display: flex; align-items: center; justify-content: center; border-radius: 1.25rem;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <span style="font-size: 10px; color: #3b82f6; font-weight: 900; text-transform: uppercase; padding: 6px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 2rem; border: 1px solid rgba(59, 130, 246, 0.2);">Operational</span>
+                    </div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem;">Operational Pulse</h3>
+                    <p style="color: #94a3b8; font-size: 1rem; line-height: 1.7; margin: 0;">Master-grid for localized zone utilization and Made-in-KSA asset tracking.</p>
                 </div>
-                <div class="card-panel pointer" onclick="location.hash='#/stock-velocity'" style="background: #161b22; border: 1px solid #30363d; padding: 2rem; border-radius: 1rem;">
-                    <h4 style="color: #da3633; font-size: 1rem; margin-bottom: 0.5rem;">Velocity Analytics</h4>
-                    <p style="color: #8b949e; font-size: 0.75rem;">Detect supply chain friction and throughput stagnation risks.</p>
+
+                <div style="background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(239, 68, 68, 0.2); padding: 2.5rem; border-radius: 1.5rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);" onmouseover="this.style.borderColor='rgba(239, 68, 68, 0.5)'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(239,68,68,0.15)'" onmouseout="this.style.borderColor='rgba(239, 68, 68, 0.2)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'" onclick="location.hash='#/stock-velocity'">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                        <div style="width: 56px; height: 56px; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; border-radius: 1.25rem;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <span style="font-size: 10px; color: #ef4444; font-weight: 900; text-transform: uppercase; padding: 6px 12px; background: rgba(239, 68, 68, 0.1); border-radius: 2rem; border: 1px solid rgba(239, 68, 68, 0.2);">Real-Time</span>
+                    </div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem;">Velocity Analytics</h3>
+                    <p style="color: #94a3b8; font-size: 1rem; line-height: 1.7; margin: 0;">Predictive friction detection and throughput stagnation monitoring.</p>
                 </div>
+
             </div>
         </div>
     `;
