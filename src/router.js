@@ -17,6 +17,7 @@ import { renderInvoicePaymentPage } from './pages/invoice-payment.js';
 import { renderSupplierMgmtPage } from './pages/supplier-mgmt.js';
 import { renderIntegrationSettingsPage } from './pages/integration-settings.js';
 import { renderUserProfilePage } from './pages/user-profile.js';
+import { renderStockVelocityPage } from './pages/stock-velocity.js';
 
 // Route order defines the "chapter" order for narrative slide direction
 const ROUTE_ORDER = [
@@ -27,6 +28,7 @@ const ROUTE_ORDER = [
   'order-management',
   'inventory-management',
   'warehouse-grid', // The drill-down view
+  'stock-velocity',
   'receiving-qa',
   'invoice-payment',
   'supplier-mgmt',
@@ -60,6 +62,7 @@ class Router {
     this.register('order-management', renderOrderManagementPage);
     this.register('inventory-management', renderInventoryManagementPage);
     this.register('warehouse-grid', renderWarehouseGridPage);
+    this.register('stock-velocity', renderStockVelocityPage);
     this.register('receiving-qa', renderReceivingQAPage);
     this.register('invoice-payment', renderInvoicePaymentPage);
     this.register('supplier-mgmt', renderSupplierMgmtPage);
