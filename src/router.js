@@ -11,7 +11,7 @@ import { renderMarketResearchPage } from './pages/market-research.js';
 import { renderSupplierSelectionPage } from './pages/supplier-selection.js';
 import { renderOrderManagementPage } from './pages/order-management.js';
 import { renderInventoryManagementPage } from './pages/inventory-management.js';
-import { renderWarehouseGridPage } from './pages/WarehouseGrid.js'; // New Peer Module
+import { renderWarehouseGridPage } from './pages/warehouse-grid.js'; // Corrected Lowercase Path
 import { renderReceivingQAPage } from './pages/receiving-qa.js';
 import { renderInvoicePaymentPage } from './pages/invoice-payment.js';
 import { renderSupplierMgmtPage } from './pages/supplier-mgmt.js';
